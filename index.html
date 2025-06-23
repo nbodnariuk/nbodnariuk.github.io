@@ -22,23 +22,36 @@ body {
 
 h1 {
   color: #0056b3; /* Darker blue for the title */
-  text-align: center;
-  padding-left: 20px; /* Small indentation towards the center */
+  text-align: left;
+  margin-left: 20px;
 }
 
 /* Transparent content box */
 .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 40px;
-  background-color: rgba(255, 255, 255, 0.7); /* 70% opacity */
+  background-color: rgba(255, 255, 255, 0.7);
   max-width: 800px;
   margin: 40px auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* Left section for text */
+.content .text {
+  flex: 1;
+  margin-right: 20px;
+}
+
+/* Right section for photo */
+.content .photo {
+  flex: 0 0 150px;
+  text-align: right;
+}
+
 .profile-photo {
-  display: block;
-  margin: 20px auto;
   border-radius: 50%; /* Makes it circular */
   width: 150px;
   height: 150px;
@@ -63,10 +76,17 @@ h1 {
 </header>
 
 <div class="content">
-  <!-- Small Profile Photo -->
-  <img src="profile_photo.jpeg" alt="Nicolás Bodnariuk" class="profile-photo">
-
-  <p>A physical oceanographer interested in Geophysical Fluid Dynamics and the application of mathematics to further our understanding of climate science</p>
+  <div class="text">
+    <p>
+      A physical oceanographer interested in Geophysical Fluid Dynamics and the application of mathematics 
+      to further our understanding of climate science. Currently working at 
+      <a href="https://www.lmd.ipsl.fr/" target="_blank">LMD (CNRS)</a> in France under the supervision of 
+      <a href="https://www.lmd.ens.fr/speich/" target="_blank">Sabrina Speich</a>.
+    </p>
+  </div>
+  <div class="photo">
+    <img src="profile_photo.jpeg" alt="Nicolás Bodnariuk" class="profile-photo">
+  </div>
 </div>
 
 </body>
