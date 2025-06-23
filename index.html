@@ -3,12 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Home - Nicolás Bodnariuk</title>
-<!-- Link the common stylesheet used across pages -->
+<!-- Link your stylesheet for the nav bar and common styles -->
 <link rel="stylesheet" href="style.css">
 <style>
-/* Specific home page title styling */
+/* Specific styles for the Home page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  /* Background image for the Home page */
+  background-image: url('ocean.png'); /* Change to your actual image path */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #333;
+}
+
 h1 {
-  color: #007BFF; /* Blue shade for the title */
+  color: #007BFF;
+}
+
+.content {
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 40px auto;
+  border-radius: 10px;
+}
+
+.profile-photo {
+  display: block;
+  margin: 20px auto;
+  border-radius: 50%; /* Makes it circular */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 3px solid #007BFF;
 }
 </style>
 </head>
@@ -27,9 +58,12 @@ h1 {
   <h1>Nicolás Bodnariuk</h1>
 </header>
 
-<section>
-  <p>Welcome to my personal website! Here you can learn more about my background, research interests, and recent publications in ocean dynamics and applied mathematics for climate studies.</p>
-</section>
+<div class="content">
+  <!-- Small Profile Photo -->
+  <img src="photo_cV.jpeg" alt="Nicolás Bodnariuk" class="profile-photo">
+
+  <p>Welcome to my personal website! Here you can learn more about my background, interests, and recent work in ocean dynamics and applied mathematics for climate studies.</p>
+</div>
 
 </body>
 </html>
