@@ -5,26 +5,45 @@
 <title>About Me - Nicolás Bodnariuk</title>
 <link rel="stylesheet" href="style.css">
 <style>
-body {
-  font-family: Arial, sans-serif;
-}
-.content {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-}
-h1, h2 {
-  color: #007BFF;
-}
-img.figure {
-  display: block;
-  margin: 40px auto;
-  max-width: 600px;
-  border-radius: 8px;
-}
-p {
-  line-height: 1.5;
-}
+  body {
+    font-family: Arial, sans-serif;
+  }
+  nav a {
+    /* Your existing nav styles, if any */
+  }
+  .content {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    position: relative;
+  }
+  h1, h2 {
+    color: #007BFF;
+  }
+  p {
+    line-height: 1.5;
+  }
+  /* Video container */
+  .video-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 320px;
+    max-width: 40vw;
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  /* Add some padding on the right to avoid text behind video */
+  .text-with-video {
+    padding-right: 360px; /* slightly wider than video width + margin */
+  }
 </style>
 </head>
 <body>
@@ -38,42 +57,46 @@ p {
 </nav>
 
 <div class="content">
-  <h1>About Me</h1>
+  <div class="video-container">
+    <video src="video_DG.mp4" controls muted loop></video>
+  </div>
+  
+  <div class="text-with-video">
+    <h1>About Me</h1>
 
-  <h2>Keywords</h2>
-  <p>Physical oceanography, climate science, dynamical system theory, ocean modeling, 
-  non-linear interactions in the coupled ocean-atmosphere system, topological data analysis</p>
+    <h2>Keywords</h2>
+    <p>Physical oceanography, climate science, dynamical system theory, ocean modeling, 
+    non-linear interactions in the coupled ocean-atmosphere system, topological data analysis</p>
 
-  <h2>Expertise</h2>
-  <p>
-    I am a physical oceanographer with a strong interest in geophysical fluid dynamics and the 
-    application of mathematical methods to the study of the climate system. My current research focuses 
-    on the dynamics of the double-gyre circulation from the perspective of dynamical systems theory. 
-    I leverage concepts from algebraic topology to analyze the structure of the system’s attractors, 
-    aiming to gain insights into the underlying mechanisms that drive large-scale ocean circulation patterns. 
-    As part of this work, I have developed my own numerical model of the double-gyre system, 
-    which I wrote in the Julia programming language, to explore its nonlinear dynamics under controlled conditions.
-  </p>
-  <p>
-    In parallel, I have worked extensively with oceanic and atmospheric reanalysis datasets to investigate 
-    the influence of large-scale climate organization on regional dynamics, particularly over the South Atlantic 
-    Western Continental Shelf. I apply statistical tools such as Empirical Orthogonal Functions (EOF), 
-    Multichannel Singular Spectrum Analysis (MSSA), and related techniques to identify dominant modes 
-    of variability and their spatiotemporal evolution. This work has included the analysis of interannual 
-    variability in ocean circulation and its relationship to broader climate patterns, using reanalysis 
-    data to bridge scales and uncover robust connections between global drivers and regional responses.
-  </p>
-  <p>
-    Beyond numerical and theoretical work, I have been actively involved in field campaigns. My last campaign 
-    focused on the deployment of surface drifters for Lagrangian experiments to characterize transport processes 
-    and mesoscale dynamics in shelf and open ocean regions. Additionally, I participated in sediment sampling 
-    efforts in the Río de la Plata estuary aimed at validating satellite observations of sediment content. 
-    I also work extensively with satellite imagery, such as sea surface temperature and chlorophyll-a products, 
-    and apply techniques from dynamical systems theory, including Lagrangian Coherent Structures (LCS) analysis, 
-    to identify organized flow patterns and coherent transport features in the ocean.
-  </p>
-
-  <img src="your-image-path.png" alt="Research Figure" class="figure" />
+    <h2>Expertise</h2>
+    <p>
+      I am a physical oceanographer with a strong interest in geophysical fluid dynamics and the 
+      application of mathematical methods to the study of the climate system. My current research focuses 
+      on the dynamics of the double-gyre circulation from the perspective of dynamical systems theory. 
+      I leverage concepts from algebraic topology to analyze the structure of the system’s attractors, 
+      aiming to gain insights into the underlying mechanisms that drive large-scale ocean circulation patterns. 
+      As part of this work, I have developed my own numerical model of the double-gyre system, 
+      which I wrote in the Julia programming language, to explore its nonlinear dynamics under controlled conditions.
+    </p>
+    <p>
+      In parallel, I have worked extensively with oceanic and atmospheric reanalysis datasets to investigate 
+      the influence of large-scale climate organization on regional dynamics, particularly over the South Atlantic 
+      Western Continental Shelf. I apply statistical tools such as Empirical Orthogonal Functions (EOF), 
+      Multichannel Singular Spectrum Analysis (MSSA), and related techniques to identify dominant modes 
+      of variability and their spatiotemporal evolution. This work has included the analysis of interannual 
+      variability in ocean circulation and its relationship to broader climate patterns, using reanalysis 
+      data to bridge scales and uncover robust connections between global drivers and regional responses.
+    </p>
+    <p>
+      Beyond numerical and theoretical work, I have been actively involved in field campaigns. My last campaign 
+      focused on the deployment of surface drifters for Lagrangian experiments to characterize transport processes 
+      and mesoscale dynamics in shelf and open ocean regions. Additionally, I participated in sediment sampling 
+      efforts in the Río de la Plata estuary aimed at validating satellite observations of sediment content. 
+      I also work extensively with satellite imagery, such as sea surface temperature and chlorophyll-a products, 
+      and apply techniques from dynamical systems theory, including Lagrangian Coherent Structures (LCS) analysis, 
+      to identify organized flow patterns and coherent transport features in the ocean.
+    </p>
+  </div>
 </div>
 </body>
 </html>
