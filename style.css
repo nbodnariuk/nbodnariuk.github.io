@@ -1,23 +1,16 @@
+/* style.css example for navigation links */
 nav {
   display: flex;
-  justify-content: center;
-  background-color: #007acc;
-  padding: 15px;
+  justify-content: space-around;
+  background-color: #007BFF;
+  padding: 10px 0;
 }
-
 nav a {
   color: #fff;
-  font-size: 1.25rem;
   text-decoration: none;
-  margin: 0 20px;
-  padding: 10px 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
-
 nav a:hover {
   text-decoration: underline;
-}
-
-#home-title {
-  text-align: left;
-  margin-left: 40px;
 }
