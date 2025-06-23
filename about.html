@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <title>About Me - Nicolás Bodnariuk</title>
-<link rel="stylesheet" href="style.css">
 <style>
   body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0 20px;
+  }
+  nav {
+    margin: 20px 0;
   }
   nav a {
-    /* Your existing nav styles, if any */
+    margin-right: 15px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
   }
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container for text and video side by side */
   .content {
-    max-width: 800px;
+    display: flex;
+    max-width: 900px;
     margin: 40px auto;
-    padding: 20px;
-    position: relative;
+    gap: 30px;
+    align-items: flex-start;
   }
+
+  /* Text container */
+  .text-with-video {
+    flex: 1;
+  }
+
   h1, h2 {
     color: #007BFF;
   }
   p {
     line-height: 1.5;
   }
+
   /* Video container */
   .video-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    flex-shrink: 0;
     width: 320px;
     max-width: 40vw;
     border: 2px solid #007BFF;
@@ -40,10 +58,7 @@
     height: auto;
     display: block;
   }
-  /* Add some padding on the right to avoid text behind video */
-  .text-with-video {
-    padding-right: 360px;
-  }
+
   .cv-link {
     font-size: 1.3em;
     color: #007BFF;
@@ -66,14 +81,7 @@
   <a href="projects.html">Projects</a>
 </nav>
 
-<div class="container">
-      <div class="item">
-        <h1>Video</h1>
-    <video width="640" height="360" controls>
-      <source src="https://github.com/user-attachments/assets/1621fbe1-864c-47f6-985f-6d940d4b3931" type="video/mp4">
-     
-    </video>
-  
+<div class="content">
   <div class="text-with-video">
     <h1>About Me</h1>
     <p>
@@ -83,6 +91,13 @@
       In parallel, I have worked extensively with oceanic and atmospheric reanalysis datasets to investigate the influence of large-scale climate organization on regional dynamics, particularly over the South Atlantic Western Continental Shelf.
     </p>
     <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
+  </div>
+
+  <div class="video-container">
+    <video controls>
+      <source src="https://github.com/user-attachments/assets/1621fbe1-864c-47f6-985f-6d940d4b3931" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   </div>
 </div>
 </body>
