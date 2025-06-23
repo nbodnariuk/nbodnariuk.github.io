@@ -1,36 +1,44 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #fafafa;
-  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styles */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #007acc;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Section Styles */
+section {
+  padding: 60px 20px;
   max-width: 800px;
   margin: auto;
-  padding: 20px;
 }
 
-h1 {
-  color: #007acc;
-}
-
-h2 {
-  margin-top: 30px;
+h1, h2 {
+  text-align: center;
 }
 
 img {
   display: block;
   margin: 20px auto;
   border-radius: 8px;
-}
-
-ul {
-  list-style-type: square;
-  padding-left: 20px;
-}
-
-a {
-  color: #007acc;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
