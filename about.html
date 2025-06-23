@@ -46,12 +46,13 @@
   /* Video container */
   .video-container {
     flex-shrink: 0;
-    width: 480px; /* increased width for 1.5x bigger */
+    width: 480px; /* 1.5x bigger */
     max-width: 40vw;
     border: 2px solid #007BFF;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-top: 24px; /* push video down to align with text */
   }
   video {
     width: 100%;
@@ -94,7 +95,7 @@
   </div>
 
   <div class="video-container">
-    <video controls>
+    <video controls autoplay muted loop playsinline>
       <source src="https://github.com/user-attachments/assets/1621fbe1-864c-47f6-985f-6d940d4b3931" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
