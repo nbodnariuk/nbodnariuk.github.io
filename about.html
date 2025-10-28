@@ -5,55 +5,85 @@
 <title>About Me - Nicolás Bodnariuk</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
     margin: 0;
-    padding: 0 20px;
-  }
-  nav {
-    margin: 20px 0;
-  }
-  nav a {
-    margin-right: 15px;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  nav a:hover {
-    text-decoration: underline;
+    padding: 0;
+    background-image: url('fondo_2.png'); /* mismo fondo que el Home */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f2f2f2;
   }
 
-  /* Container for text and video side by side */
+  nav {
+    background-color: rgba(10, 15, 25, 0.75);
+    padding: 15px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  nav a {
+    color: rgba(230, 230, 230, 0.9);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #00E5FF;
+  }
+
+  /* Content container */
   .content {
     display: flex;
-    max-width: 900px;
-    margin: 40px auto;
-    gap: 30px;
+    max-width: 1000px;
+    margin: 60px auto;
+    gap: 40px;
     align-items: flex-start;
+    background-color: rgba(15, 20, 35, 0.72);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+    padding: 40px;
   }
 
-  /* Text container */
+  /* Text section */
   .text-with-video {
     flex: 1;
   }
 
-  h1, h2 {
-    color: #007BFF;
+  h1 {
+    color: #FFB74D; /* naranja cálido para el título */
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 14px rgba(255, 183, 77, 0.8);
   }
+
   p {
-    line-height: 1.5;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(240, 240, 240, 0.95);
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
   }
 
   /* Video container */
   .video-container {
     flex-shrink: 0;
-    width: 480px; /* 1.5x bigger */
+    width: 480px;
     max-width: 40vw;
-    border: 2px solid #007BFF;
+    border: 2px solid #00E5FF;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-top: 24px; /* push video down to align with text */
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+    margin-top: 24px;
   }
+
   video {
     width: 100%;
     height: auto;
@@ -61,19 +91,23 @@
   }
 
   .cv-link {
-    font-size: 1.3em;
-    color: #007BFF;
+    font-size: 1.2em;
+    color: #00E5FF;
     font-weight: bold;
     text-decoration: none;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 25px;
+    transition: color 0.3s ease;
   }
+
   .cv-link:hover {
     text-decoration: underline;
+    color: #7FF9FF;
   }
 </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html">Home</a>
   <a href="about.html">About Me</a>
@@ -86,10 +120,13 @@
   <div class="text-with-video">
     <h1>About Me</h1>
     <p>
-      I am a physical oceanographer with a strong interest in geophysical fluid dynamics and the application of mathematical methods to the study of the climate system. My current research focuses on the dynamics of the double-gyre circulation from the perspective of dynamical systems theory. I leverage concepts from algebraic topology to analyze the structure of the system’s attractors, aiming to gain insights into the underlying mechanisms that drive large-scale ocean circulation patterns. As part of this work, I have developed my own numerical model of the double-gyre system, which I wrote in the Julia programming language, to explore its nonlinear dynamics under controlled conditions.
+      I am a physical oceanographer and data scientist with a strong background in applied mathematics and geophysical fluid dynamics. I earned my undergraduate degree in Physical Oceanography from the <strong>National University of the South</strong> (Argentina, 2015) and completed my PhD in Ocean and Atmospheric Sciences at the <strong>University of Buenos Aires</strong> (2023), supported by a <strong>CONICET</strong> fellowship.
     </p>
     <p>
-      In parallel, I have worked extensively with oceanic and atmospheric reanalysis datasets to investigate the influence of large-scale climate organization on regional dynamics, particularly over the South Atlantic Western Continental Shelf.
+      I later carried out postdoctoral research at both the <strong>CIMA</strong> (Centro de Investigación del Mar y la Atmósfera, Buenos Aires) and the <strong>LMD</strong> (Laboratoire de Météorologie Dynamique, <strong>CNRS</strong>, Paris, France). My academic work has focused on the analysis of large geophysical datasets — often spanning terabytes — integrating concepts from dynamical systems theory, topology, and statistics to study nonlinear processes in the climate system.
+    </p>
+    <p>
+      In addition to my scientific background, I have professional experience in the private sector, where I worked with meteorological databases used for the analysis of pollutant dispersion and environmental modelling. This combination of research and data-driven experience has shaped my interest in bridging physical insight with advanced computational tools for understanding complex systems.
     </p>
     <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
   </div>
@@ -101,5 +138,6 @@
     </video>
   </div>
 </div>
+
 </body>
 </html>
