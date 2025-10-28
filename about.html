@@ -83,6 +83,9 @@
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
     margin-top: 24px;
     background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   video {
@@ -102,13 +105,16 @@
     text-align: justify;
   }
 
+  /* CV link under the video */
   .cv-link {
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #00E5FF;
     font-weight: bold;
     text-decoration: none;
-    display: inline-block;
-    margin-top: 25px;
+    display: block;
+    text-align: center;
+    margin: 15px auto 10px;
+    padding-top: 10px;
     transition: color 0.3s ease;
   }
 
@@ -141,8 +147,6 @@
     <p>
       In addition to my scientific background, I have professional experience in the private sector, where I worked with meteorological databases used for the analysis of pollutant dispersion.
     </p>
-
-    <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
   </div>
 
   <div class="video-container">
@@ -153,6 +157,7 @@
     <div class="video-caption">
       Integration in time of a system of partial differential equations representing a wind-driven double-gyre circulation. The spatial field displays the stream function in physical space, while the time series shows the signal at the black dot location in the figure.
     </div>
+    <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
   </div>
 </div>
 
