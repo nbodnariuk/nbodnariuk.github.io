@@ -3,21 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Home - Nicolás Bodnariuk</title>
-<!-- Link your stylesheet for the nav bar and common styles -->
 <link rel="stylesheet" href="style.css">
+
 <style>
-/* Specific styles for the Home page */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
   margin: 0;
   padding: 0;
-
-  /* Background image for the Home page */
-  background-image: url('ocean.png');
+  background-image: url('fondo.png'); /* reemplazá con tu nuevo fondo */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: #333;
+  color: #f2f2f2;
 }
 
 /* Transparent content box */
@@ -26,11 +23,12 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   padding: 40px;
-  background-color: rgba(255, 255, 255, 0.7);
-  max-width: 800px;
-  margin: 40px auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background-color: rgba(10, 15, 25, 0.75);
+  max-width: 900px;
+  margin: 60px auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
 }
 
 /* Left section for title and text */
@@ -40,32 +38,66 @@ body {
 }
 
 .content .text h1 {
-  color: #0056b3;
-  font-size: 2rem;
+  color: #5ab0ff;
+  font-size: 2.4rem;
   margin: 0 0 20px 0;
 }
 
 .content .text p {
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #e6e6e6;
+}
+
+.content .text a {
+  color: #5ab0ff;
+  text-decoration: none;
+}
+
+.content .text a:hover {
+  text-decoration: underline;
 }
 
 /* Right section for photo */
 .content .photo {
-  flex: 0 0 150px;
+  flex: 0 0 160px;
   text-align: right;
 }
 
 .profile-photo {
   border-radius: 50%; 
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   object-fit: cover;
-  border: 3px solid #007BFF;
+  border: 3px solid #5ab0ff;
+  box-shadow: 0 0 10px rgba(90,176,255,0.5);
+}
+
+/* Navigation Bar */
+nav {
+  background-color: rgba(10, 15, 25, 0.9);
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: #e6e6e6;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #5ab0ff;
 }
 </style>
 </head>
 <body>
+
 <!-- Main Navigation Bar -->
 <nav>
   <a href="index.html">Home</a>
@@ -79,7 +111,9 @@ body {
 <div class="content">
   <div class="text">
     <h1>Nicolás Bodnariuk</h1>
-    <p> I’m a physical oceanographer interested in Geophysical Fluid Dynamics and passionate about using mathematics to better understand how our climate works. Currently working at <a href="https://www.lmd.ipsl.fr/" target="_blank">LMD</a> (<a href="https://www.cnrs.fr/fr" target="_blank">CNRS</a>).</p>
+    <p>I’m a data scientist and physical oceanographer with a strong background in applied mathematics and data analysis. My work focuses on extracting patterns and meaning from complex, high-dimensional datasets — ranging from climate and ocean models to large-scale environmental databases.</p>
+    <p>I’m particularly interested in how mathematical and computational methods — from dynamical systems theory to machine learning — can be used to uncover hidden structures, model nonlinear processes, and deepen our understanding of complex systems.</p>
+    <p>I have experience handling and analysing large geophysical and meteorological datasets through my work at <strong>CONICET</strong> (the Argentinian National Research Council), <strong>CNRS</strong> (the French National Research Centre), and in the private sector (e.g., <strong>Bahitek</strong>). My research has involved applying techniques such as topological data analysis, spectral decomposition, spatiotemporal pattern discovery, and statistical testing.</p>
   </div>
   <div class="photo">
     <img src="profile_photo.jpeg" alt="Nicolás Bodnariuk" class="profile-photo">
