@@ -8,7 +8,7 @@
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('fondo_2.png'); /* mismo fondo que el Home */
+    background-image: url('fondo_2.png'); /* same background as Home */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -59,7 +59,7 @@
   }
 
   h1 {
-    color: #FFB74D; /* naranja cálido para el título */
+    color: #FFB74D; /* warm orange for the title */
     font-size: 2.2rem;
     margin-bottom: 20px;
     text-shadow: 0 0 14px rgba(255, 183, 77, 0.8);
@@ -82,12 +82,24 @@
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
     margin-top: 24px;
+    background-color: rgba(0, 0, 0, 0.3);
   }
 
   video {
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  /* Caption below the video */
+  .video-caption {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: rgba(220, 220, 220, 0.9);
+    background-color: rgba(10, 15, 25, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-style: italic;
+    text-align: justify;
   }
 
   .cv-link {
@@ -119,8 +131,9 @@
 <div class="content">
   <div class="text-with-video">
     <h1>About Me</h1>
+
     <p>
-      I earned my undergraduate degree in Physical Oceanography from the <strong>Universidad Nacional del Sur </strong> (Argentina, 2015) and completed my PhD in Ocean and Atmospheric Sciences at the <strong>Universidad de Buenos Aires</strong> (2023), supported by a <strong>CONICET</strong> fellowship.
+      I earned my undergraduate degree in Physical Oceanography from the <strong>Universidad Nacional del Sur</strong> (Argentina, 2015) and completed my PhD in Ocean and Atmospheric Sciences at the <strong>Universidad de Buenos Aires</strong> (2023), supported by a <strong>CONICET</strong> fellowship.
     </p>
     <p>
       I later carried out postdoctoral research at both the <strong>CIMA</strong> (Centro de Investigación del Mar y la Atmósfera, Buenos Aires) and the <strong>LMD</strong> (Laboratoire de Météorologie Dynamique, <strong>CNRS</strong>, Paris, France). My academic work has focused on the analysis of large geophysical datasets — often spanning terabytes — integrating concepts from dynamical systems theory, topology, and statistics to study nonlinear processes in the climate system.
@@ -128,6 +141,7 @@
     <p>
       In addition to my scientific background, I have professional experience in the private sector, where I worked with meteorological databases used for the analysis of pollutant dispersion.
     </p>
+
     <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
   </div>
 
@@ -136,6 +150,9 @@
       <source src="https://github.com/user-attachments/assets/1621fbe1-864c-47f6-985f-6d940d4b3931" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
+    <div class="video-caption">
+      Integration in time of a system of partial differential equations representing a wind-driven double-gyre circulation. The spatial field displays the stream function in physical space, while the time series shows the signal at the black dot location in the figure.
+    </div>
   </div>
 </div>
 
