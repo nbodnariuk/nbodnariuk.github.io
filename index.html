@@ -10,7 +10,7 @@ body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('fondo.png'); /* reemplazá con tu nuevo fondo */
+  background-image: url('data_background.png'); /* reemplazá con tu nuevo fondo */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -23,22 +23,23 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   padding: 40px;
-  background-color: rgba(10, 15, 25, 0.75);
+  background-color: rgba(10, 15, 25, 0.55); /* Más transparente para que se vea el fondo */
   max-width: 900px;
   margin: 60px auto;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(4px);
 }
 
 /* Left section for title and text */
 .content .text {
   flex: 1;
   margin-right: 20px;
+  color: rgba(255, 255, 255, 0.88); /* texto con transparencia */
 }
 
 .content .text h1 {
-  color: #5ab0ff;
+  color: rgba(90, 176, 255, 0.95);
   font-size: 2.4rem;
   margin: 0 0 20px 0;
 }
@@ -46,11 +47,11 @@ body {
 .content .text p {
   font-size: 1.15rem;
   line-height: 1.6;
-  color: #e6e6e6;
+  color: rgba(240, 240, 240, 0.85);
 }
 
 .content .text a {
-  color: #5ab0ff;
+  color: rgba(90, 176, 255, 0.95);
   text-decoration: none;
 }
 
@@ -69,22 +70,23 @@ body {
   width: 160px;
   height: 160px;
   object-fit: cover;
-  border: 3px solid #5ab0ff;
-  box-shadow: 0 0 10px rgba(90,176,255,0.5);
+  border: 3px solid rgba(90,176,255,0.9);
+  box-shadow: 0 0 10px rgba(90,176,255,0.4);
 }
 
 /* Navigation Bar */
 nav {
-  background-color: rgba(10, 15, 25, 0.9);
+  background-color: rgba(10, 15, 25, 0.85);
   padding: 15px 0;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(4px);
 }
 
 nav a {
-  color: #e6e6e6;
+  color: rgba(230, 230, 230, 0.9);
   text-decoration: none;
   margin: 0 20px;
   font-weight: 500;
@@ -92,7 +94,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #5ab0ff;
+  color: rgba(90,176,255,0.95);
 }
 </style>
 </head>
@@ -112,8 +114,8 @@ nav a:hover {
   <div class="text">
     <h1>Nicolás Bodnariuk</h1>
     <p>I’m a data scientist and physical oceanographer with a strong background in applied mathematics and data analysis. My work focuses on extracting patterns and meaning from complex, high-dimensional datasets — ranging from climate and ocean models to large-scale environmental databases.</p>
-    <p>I’m interested in how mathematical and computational methods — from dynamical systems theory to machine learning — can be used to uncover hidden structures, model nonlinear processes, and deepen our understanding of complex systems.</p>
-    <p>I have experience handling and analysing large geophysical and meteorological datasets through my work at <strong>CONICET</strong> (the Argentinian National Research Council), <strong>CNRS</strong> (the French National Research Centre), and in the private sector (e.g., <strong>Bahitek</strong>). </p>
+    <p>I’m particularly interested in how mathematical and computational methods — from dynamical systems theory to machine learning — can be used to uncover hidden structures, model nonlinear processes, and deepen our understanding of complex systems.</p>
+    <p>I have experience handling and analysing large geophysical and meteorological datasets through my work at <strong>CONICET</strong> (the Argentinian National Research Council), <strong>CNRS</strong> (the French National Research Centre), and in the private sector (e.g., <strong>Bahitek</strong>). My research has involved applying techniques such as topological data analysis, spectral decomposition, spatiotemporal pattern discovery, and statistical testing.</p>
   </div>
   <div class="photo">
     <img src="profile_photo.jpeg" alt="Nicolás Bodnariuk" class="profile-photo">
