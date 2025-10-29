@@ -5,17 +5,12 @@
 <title>About Me - Nicolás Bodnariuk</title>
 
 <style>
-/* ===== Consistencia entre pestañas ===== */
-/* Evitar “salto” por la barra de scroll */
+/* ===== Consistencia global ===== */
 html { scrollbar-gutter: stable both-edges; }
 @supports not (scrollbar-gutter: stable) {
   html { overflow-y: scroll; }
 }
-
-/* Medidas consistentes */
 *, *::before, *::after { box-sizing: border-box; }
-
-/* Fondo consistente y altura mínima */
 html, body { height: 100%; }
 body {
   min-height: 100vh;
@@ -30,35 +25,43 @@ body {
   background-attachment: fixed;
 }
 
-/* ===== Navegación (igual en todas las páginas) ===== */
+/* ===== Navegación ===== */
 :root { --nav-h: 60px; }
+
 nav {
   height: var(--nav-h);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 24px;                /* sin padding vertical para altura exacta */
+  gap: 50px; /* 🔹 más separación entre pestañas */
   position: sticky;
   top: 0;
   z-index: 1000;
   background-color: rgba(10, 15, 25, 0.75);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
+
 nav a {
   color: rgba(230, 230, 230, 0.9);
   text-decoration: none;
-  margin: 0 20px;
   font-weight: 600;
-  transition: color 0.3s ease;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+  padding-inline: 6px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-nav a:hover { color: #00E5FF; }
+nav a:hover {
+  color: #00E5FF;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
 
 /* ===== Contenido ===== */
 .content {
   display: flex;
   max-width: 900px;
-  margin: 60px auto;              /* mismo margen que en Home */
+  margin: 60px auto;
   gap: 30px;
   align-items: flex-start;
   background-color: rgba(15, 20, 35, 0.72);
@@ -114,20 +117,20 @@ video { width: 100%; height: auto; display: block; }
   text-align: justify;
 }
 
-/* Link al CV con flecha a la derecha y bajado 1.5 cm */
+/* ===== Link al CV con flecha ANTES del texto ===== */
 .cv-link {
   font-size: 1.2rem;
   color: #FFB74D;
   font-weight: 600;
   text-decoration: none;
   align-self: center;
-  margin-top: 1.5cm;              /* bajado 1.5 cm */
+  margin-top: 1.5cm;
   position: relative;
   transition: color 0.3s ease, transform 0.2s ease;
 }
-.cv-link::after {
-  content: "→";                    /* flecha a la derecha */
-  margin-left: 10px;
+.cv-link::before {
+  content: "←";              /* 🔹 flecha antes del texto */
+  margin-right: 10px;
   display: inline-block;
   transition: transform 0.3s ease;
 }
@@ -136,13 +139,17 @@ video { width: 100%; height: auto; display: block; }
   text-shadow: 0 0 10px rgba(255, 183, 77, 0.8);
   transform: translateX(2px);
 }
-.cv-link:hover::after {
-  transform: translateX(3px);
+.cv-link:hover::before {
+  transform: translateX(-3px);
 }
 
-/* Evitar jank del fondo fijo en móviles */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   body { background-attachment: scroll; }
+  nav { flex-wrap: wrap; gap: 25px; }
+  .content { flex-direction: column; text-align: center; }
+  .media-column { width: 100%; max-width: 100%; }
+  .cv-link { margin-top: 1cm; }
 }
 </style>
 </head>
@@ -158,7 +165,6 @@ video { width: 100%; height: auto; display: block; }
 </nav>
 
 <div class="content">
-  <!-- Texto -->
   <div class="text-with-video">
     <h1>About Me</h1>
     <p>
@@ -172,7 +178,6 @@ video { width: 100%; height: auto; display: block; }
     </p>
   </div>
 
-  <!-- Video + epígrafe + CV -->
   <div class="media-column">
     <div class="video-container">
       <video controls autoplay muted loop playsinline>
@@ -190,4 +195,5 @@ video { width: 100%; height: auto; display: block; }
 
 </body>
 </html>
+
 
