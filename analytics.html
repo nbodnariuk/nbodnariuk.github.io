@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Data Analytics and Modelling - Nicolás Bodnariuk</title>
+<style>
+  body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('fondo_2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f2f2f2;
+  }
+
+  nav {
+    background-color: rgba(10, 15, 25, 0.75);
+    padding: 15px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  nav a {
+    color: rgba(230, 230, 230, 0.9);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: rgba(255, 160, 70, 0.95); /* naranja */
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 60px;
+    color: rgba(255, 160, 70, 0.95);
+    text-shadow: 0 0 14px rgba(255, 160, 70, 0.7);
+    font-size: 2.4rem;
+  }
+
+  .section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 60px auto;
+    gap: 40px;
+    align-items: flex-start;
+    background-color: rgba(15, 20, 35, 0.72);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+    padding: 40px;
+  }
+
+  .section .text {
+    flex: 1;
+    color: rgba(240, 240, 240, 0.95);
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .video-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .video-container {
+    width: 100%;
+    max-width: 480px;
+    border: 2px solid rgba(79, 195, 247, 0.9);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .video-caption {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    color: rgba(220, 220, 220, 0.9);
+    background-color: rgba(10, 15, 25, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-style: italic;
+    text-align: justify;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Me</a>
+  <a href="analytics.html">Data Analytics and Modelling</a>
+  <a href="publications.html">Publications</a>
+</nav>
+
+<h1>Data Analytics and Modelling</h1>
+
+<!-- SECTION 1 -->
+<div class="section">
+  <div class="text">
+    <p>
+      This section presents examples of data-driven analysis and modelling approaches applied to complex dynamical systems. The objective is to extract structure, coherence, and hidden patterns from high-dimensional datasets — using tools that range from classical spectral methods to modern machine learning and topological data analysis.
+    </p>
+    <p>
+      The combination of physical understanding and data science methods allows for the interpretation of nonlinear processes across scales, both in model simulations and observational datasets.
+    </p>
+  </div>
+
+  <div class="video-wrapper">
+    <div class="video-container">
+      <video controls autoplay muted loop playsinline>
+        <source src="https://github.com/user-attachments/assets/1621fbe1-864c-47f6-985f-6d940d4b3931" type="video/mp4" />
+      </video>
+      <div class="video-caption">
+        Temporal evolution of a wind-driven double-gyre circulation model. The streamfunction field shows spatial variability, while the accompanying time series represents the signal at the marked reference point.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section">
+  <div class="text">
+    <p>
+      Here you may include another example, such as the use of Empirical Orthogonal Functions (EOFs), complex EOFs, or spectral decomposition to reveal spatiotemporal modes in oceanic or atmospheric fields.
+    </p>
+    <p>
+      Visualizations can be used to compare model-based reconstructions with observed data or to highlight the emergence of coherent structures within turbulent regimes.
+    </p>
+  </div>
+
+  <div class="video-wrapper">
+    <div class="video-container">
+      <video controls autoplay muted loop playsinline>
+        <source src="example_video.mp4" type="video/mp4" />
+      </video>
+      <div class="video-caption">
+        Placeholder video: an illustrative representation of pattern discovery and temporal decomposition in a geophysical dataset.
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
