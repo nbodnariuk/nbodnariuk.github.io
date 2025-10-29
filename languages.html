@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>About Me - Nicolás Bodnariuk</title>
+<meta charset="UTF-8">
+<title>Languages - Nicolás Bodnariuk</title>
 
 <style>
 body {
@@ -40,119 +40,33 @@ nav a:hover {
   color: #00E5FF; /* cyan hover */
 }
 
-/* --- Main Content --- */
-.content {
-  display: flex;
-  max-width: 900px;
-  margin: 60px auto;
-  gap: 30px;
-  align-items: flex-start;
+/* --- Languages Content --- */
+.languages-section {
+  max-width: 800px;
+  margin: 100px auto;
   background-color: rgba(15, 20, 35, 0.72);
   backdrop-filter: blur(4px);
   border-radius: 15px;
-  padding: 40px;
+  padding: 50px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: left;
 }
 
-/* Text content */
-.text-with-video {
-  flex: 1;
-}
-
-.text-with-video h1 {
-  color: #FFB74D; /* same orange as index */
+.languages-section h1 {
+  text-align: center;
+  color: #FFB74D; /* naranja cálido */
   text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-.text-with-video p {
+.languages-section p {
   font-size: 1.15rem;
   line-height: 1.6;
   color: rgba(240, 240, 240, 0.95);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-}
-
-/* Video container */
-.video-container {
-  flex-shrink: 0;
-  width: 480px;
-  max-width: 40vw;
-  border: 2px solid #00E5FF; /* cyan border */
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  margin-top: 24px;
-}
-
-video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Video caption */
-.video-caption {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 1rem;
-  color: rgba(220, 220, 220, 0.9);
-  font-style: italic;
-}
-
-/* Curriculum Vitae link */
-.cv-link {
-  font-size: 1.4rem;
-  color: #FFB74D; /* same orange as name */
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 50px; /* roughly 2 cm spacing */
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.cv-link::after {
-  content: "→"; /* arrow */
-  margin-left: 8px;
-  transition: transform 0.3s ease;
-}
-
-.cv-link:hover {
-  color: #FFD180;
-  text-shadow: 0 0 10px rgba(255, 183, 77, 0.8);
-}
-
-.cv-link:hover::after {
-  transform: translateX(5px);
-}
-
-/* Center the CV link under video */
-.cv-section {
-  text-align: center;
-}
-
-/* --- Languages Section --- */
-.languages-section {
-  max-width: 800px;
-  margin: 80px auto;
-  background-color: rgba(15, 20, 35, 0.72);
-  backdrop-filter: blur(4px);
-  border-radius: 15px;
-  padding: 40px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
-  text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.languages-section h2 {
-  text-align: center;
-  color: #FFB74D; /* naranja cálido */
-  text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
-  font-size: 1.8rem;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .languages-section ul {
@@ -162,13 +76,19 @@ video {
 }
 
 .languages-section li {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.8;
   color: rgba(240, 240, 240, 0.95);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   padding-left: 20px;
   border-left: 3px solid rgba(79, 195, 247, 0.9); /* celeste */
+}
+
+/* Optional subtle animation */
+.languages-section li:hover {
+  transform: translateX(4px);
+  transition: transform 0.3s ease;
 }
 </style>
 </head>
@@ -180,41 +100,14 @@ video {
   <a href="about.html">About Me</a>
   <a href="analytics.html">Data Analytics and Modelling</a>
   <a href="selected_work.html">Selected Work</a>
+  <a href="languages.html">Languages</a>
 </nav>
 
-<div class="content">
-  <div class="text-with-video">
-    <h1>About Me</h1>
-    <p>
-      I earned my undergraduate degree in Physical Oceanography from the <strong>Universidad Nacional del Sur</strong> (Argentina, 2015) and completed my PhD in Ocean and Atmospheric Sciences at the <strong>Universidad de Buenos Aires</strong> (2023), supported by a <strong>CONICET</strong> fellowship.
-    </p>
-    <p>
-      I later carried out postdoctoral research at both the <strong>CIMA</strong> (Centro de Investigación del Mar y la Atmósfera, Buenos Aires) and the <strong>LMD</strong> (Laboratoire de Météorologie Dynamique, <strong>CNRS</strong>, Paris, France). My academic work has focused on the analysis of large geophysical datasets — often spanning terabytes — integrating concepts from dynamical systems theory, topology, and statistics to study nonlinear processes in the climate system.
-    </p>
-    <p>
-      In addition to my scientific background, I have professional experience in the private sector, where I worked with meteorological databases used for the analysis of pollutant dispersion.
-    </p>
-  </div>
-
-  <div class="video-container">
-    <video controls autoplay muted loop playsinline>
-      <source src="https://github.com/user-attachments/assets/1621fbe1-864c-47f6-985f-6d940d4b3931" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
-
-<div class="video-caption">
-  Integration in time of a system of partial differential equations representing the wind-driven double gyre. The spatial field represents the stream function in physical space, and the timeseries shows the signal at the black dot.
-</div>
-
-<div class="cv-section">
-  <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
-</div>
-
-<!-- Languages Section -->
 <div class="languages-section">
-  <h2>Languages</h2>
+  <h1>Languages</h1>
+  <p>
+    I communicate fluently in several languages, which has greatly supported my international research collaborations and academic exchanges.
+  </p>
   <ul>
     <li><strong>Spanish:</strong> Native</li>
     <li><strong>English:</strong> Proficient (C2)</li>
@@ -225,3 +118,4 @@ video {
 
 </body>
 </html>
+
