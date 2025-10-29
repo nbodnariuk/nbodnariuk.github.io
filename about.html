@@ -5,41 +5,50 @@
 <title>About Me - Nicolás Bodnariuk</title>
 
 <style>
-/* ===== Consistencia global ===== */
-html { scrollbar-gutter: stable both-edges; }
+/* === Consistencia total con index.html === */
+
+/* Fondo aplicado al <html> para evitar barras blancas */
+html {
+  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
+  scrollbar-gutter: stable both-edges;
+}
+
+/* Fallback si no hay scrollbar-gutter */
 @supports not (scrollbar-gutter: stable) {
   html { overflow-y: scroll; }
 }
+
+/* Normalización y prevención de overflow lateral */
 *, *::before, *::after { box-sizing: border-box; }
+img, video { max-width: 100%; height: auto; display: block; }
+
 html, body { height: 100%; }
 body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   color: #f2f2f2;
-  background-image: url('fondo_2.png');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background: transparent; /* el fondo lo maneja <html> */
 }
 
-/* ===== Navegación ===== */
+/* ===== Barra de navegación (idéntica a index) ===== */
 :root { --nav-h: 60px; }
 
 nav {
   height: var(--nav-h);
   display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 50px; /* 🔹 más separación entre pestañas */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
   background-color: rgba(10, 15, 25, 0.75);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
@@ -52,6 +61,7 @@ nav a {
   padding-inline: 6px;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
+
 nav a:hover {
   color: #00E5FF;
   text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
@@ -117,7 +127,7 @@ video { width: 100%; height: auto; display: block; }
   text-align: justify;
 }
 
-/* ===== Link al CV con flecha ANTES del texto ===== */
+/* ===== Link al CV con flecha → antes del texto ===== */
 .cv-link {
   font-size: 1.2rem;
   color: #FFB74D;
@@ -129,7 +139,7 @@ video { width: 100%; height: auto; display: block; }
   transition: color 0.3s ease, transform 0.2s ease;
 }
 .cv-link::before {
-  content: "←";              /* 🔹 flecha antes del texto */
+  content: "→"; /* ✅ flecha a la derecha, antes del texto */
   margin-right: 10px;
   display: inline-block;
   transition: transform 0.3s ease;
@@ -140,12 +150,11 @@ video { width: 100%; height: auto; display: block; }
   transform: translateX(2px);
 }
 .cv-link:hover::before {
-  transform: translateX(-3px);
+  transform: translateX(3px); /* flecha se mueve ligeramente a la derecha */
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  body { background-attachment: scroll; }
   nav { flex-wrap: wrap; gap: 25px; }
   .content { flex-direction: column; text-align: center; }
   .media-column { width: 100%; max-width: 100%; }
@@ -165,6 +174,7 @@ video { width: 100%; height: auto; display: block; }
 </nav>
 
 <div class="content">
+  <!-- Texto -->
   <div class="text-with-video">
     <h1>About Me</h1>
     <p>
@@ -178,6 +188,7 @@ video { width: 100%; height: auto; display: block; }
     </p>
   </div>
 
+  <!-- Video + epígrafe + CV -->
   <div class="media-column">
     <div class="video-container">
       <video controls autoplay muted loop playsinline>
@@ -195,5 +206,3 @@ video { width: 100%; height: auto; display: block; }
 
 </body>
 </html>
-
-
