@@ -6,18 +6,57 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-image: url('fondo_2.png'); /* tu fondo */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #f2f2f2;
+/* ===== Consistencia entre pestañas ===== */
+/* Evitar “salto” por la barra de scroll */
+html { scrollbar-gutter: stable both-edges; }
+@supports not (scrollbar-gutter: stable) {
+  html { overflow-y: scroll; }
 }
 
-/* Semi-transparent container for readability */
+/* Medidas consistentes */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Fondo consistente y altura mínima */
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  background-image: url('fondo_2.png'); /* tu fondo */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Barra de navegación con altura fija */
+:root { --nav-h: 60px; }
+nav {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px; /* sin padding vertical para mantener altura exacta */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+nav a {
+  color: rgba(230, 230, 230, 0.9);
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: #00E5FF; }
+
+/* ===== Contenido de la página ===== */
+/* Contenedor semitransparente */
 .content {
   display: flex;
   justify-content: space-between;
@@ -26,53 +65,48 @@ body {
   background-color: rgba(15, 20, 35, 0.72); /* fondo oscuro semitransparente */
   backdrop-filter: blur(4px);
   max-width: 900px;
-  margin: 80px auto;
+  margin: 60px auto; /* mismo margen superior que en otras pestañas */
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
 }
 
-/* Text section */
+/* Sección de texto */
 .content .text {
   flex: 1;
   margin-right: 20px;
   color: rgba(255, 255, 255, 0.92);
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
-
 .content .text h1 {
   color: #FFB74D; /* naranja cálido brillante */
   font-size: 2.4rem;
   margin-bottom: 20px;
   text-shadow: 0 0 14px rgba(255, 183, 77, 0.8);
 }
-
 .content .text p {
   font-size: 1.15rem;
   line-height: 1.6;
   color: rgba(240, 240, 240, 0.95);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
-
 .content .text a {
-  color: #00E5FF; /* mantiene el cian brillante para links */
+  color: #00E5FF; /* cian brillante para links */
   text-decoration: none;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .content .text a:hover {
   color: #7FF9FF;
   text-shadow: 0 0 10px rgba(127, 249, 255, 0.8);
 }
 
-/* Photo section */
+/* Sección de foto */
 .content .photo {
   flex: 0 0 160px;
   text-align: right;
 }
-
 .profile-photo {
-  border-radius: 50%; 
+  border-radius: 50%;
   width: 200px;
   height: 200px;
   object-fit: cover;
@@ -80,28 +114,9 @@ body {
   box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
 }
 
-/* Navigation Bar */
-nav {
-  background-color: rgba(10, 15, 25, 0.75);
-  padding: 15px 0;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-nav a {
-  color: rgba(230, 230, 230, 0.9);
-  text-decoration: none;
-  margin: 0 20px;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #00E5FF; /* hover cian */
+/* Evitar jank del fondo fijo en móviles */
+@media (max-width: 768px) {
+  body { background-attachment: scroll; }
 }
 </style>
 </head>
