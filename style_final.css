@@ -1,0 +1,47 @@
+/* === Global Style for All Pages === */
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #f2f2f2;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* --- Navigation Bar (unificada) --- */
+nav {
+  background-color: rgba(10, 15, 25, 0.75);
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+nav a {
+  color: rgba(230, 230, 230, 0.9);
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #00E5FF; /* hover celeste brillante */
+}
+
+/* Fondo translúcido usado en secciones principales */
+.content {
+  background-color: rgba(15, 20, 35, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 900px;
+  margin: 80px auto;
+}
