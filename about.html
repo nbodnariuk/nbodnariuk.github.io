@@ -20,7 +20,7 @@ html {
 
 /* Normalización y prevención de overflow lateral */
 *, *::before, *::after { box-sizing: border-box; }
-img, video { max-width: 100%; height: auto; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 
 html, body { height: 100%; }
 body {
@@ -97,7 +97,7 @@ nav a:hover {
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
 }
 
-/* Columna del video + epígrafe + CV */
+/* Columna del logo + CV */
 .media-column {
   flex-shrink: 0;
   width: 480px;
@@ -107,24 +107,20 @@ nav a:hover {
   align-items: stretch;
 }
 
-.video-container {
+/* Marco visual (reutiliza el estilo del “video-container”) */
+.media-box {
   border: 2px solid #00E5FF;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
   background-color: rgba(0, 0, 0, 0.3);
 }
-video { width: 100%; height: auto; display: block; }
 
-/* Epígrafe debajo del video */
-.video-caption {
-  padding: 12px 16px;
-  font-size: 1rem;
-  color: rgba(220, 220, 220, 0.9);
-  background-color: rgba(10, 15, 25, 0.6);
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  font-style: italic;
-  text-align: justify;
+/* Logo */
+.logo {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ===== Link al CV con flecha → antes del texto ===== */
@@ -139,7 +135,7 @@ video { width: 100%; height: auto; display: block; }
   transition: color 0.3s ease, transform 0.2s ease;
 }
 .cv-link::before {
-  content: "→"; /* ✅ flecha a la derecha, antes del texto */
+  content: "→"; /* flecha a la derecha, antes del texto */
   margin-right: 10px;
   display: inline-block;
   transition: transform 0.3s ease;
@@ -150,7 +146,7 @@ video { width: 100%; height: auto; display: block; }
   transform: translateX(2px);
 }
 .cv-link:hover::before {
-  transform: translateX(3px); /* flecha se mueve ligeramente a la derecha */
+  transform: translateX(3px);
 }
 
 /* ===== Responsive ===== */
@@ -189,16 +185,10 @@ video { width: 100%; height: auto; display: block; }
     </p>
   </div>
 
-  <!-- Video + epígrafe + CV -->
+  <!-- Logo + CV -->
   <div class="media-column">
-    <div class="video-container">
-      <video controls autoplay muted loop playsinline>
-        <source src="https://github.com/user-attachments/assets/1621fbe1-864c-47f6-985f-6d940d4b3931" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-caption">
-        Integration in time of a system of partial differential equations representing the wind-driven double gyre. The spatial field represents the stream function in physical space, and the time series shows the signal at the black dot.
-      </div>
+    <div class="media-box">
+      <img src="logo.png" alt="Logo" class="logo">
     </div>
 
     <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
