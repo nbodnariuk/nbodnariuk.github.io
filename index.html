@@ -23,11 +23,11 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   padding: 40px;
-  background-color: rgba(15, 20, 35, 0.72); /* color oscuro con transparencia controlada */
-  backdrop-filter: blur(4px); /* efecto sutil de difuminado */
+  background-color: rgba(15, 20, 35, 0.72); /* fondo oscuro semitransparente */
+  backdrop-filter: blur(4px);
   max-width: 900px;
   margin: 80px auto;
-  border: 1px solid rgba(255, 255, 255, 0.15); /* borde suave */
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 15px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
 }
@@ -37,14 +37,14 @@ body {
   flex: 1;
   margin-right: 20px;
   color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* leve contraste */
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 .content .text h1 {
-  color: rgba(79, 195, 247, 0.95); /* celeste azulado que resalta */
+  color: #FFB74D; /* naranja cálido brillante */
   font-size: 2.4rem;
   margin-bottom: 20px;
-  text-shadow: 0 0 12px rgba(79, 195, 247, 0.6);
+  text-shadow: 0 0 14px rgba(255, 183, 77, 0.8);
 }
 
 .content .text p {
@@ -55,13 +55,14 @@ body {
 }
 
 .content .text a {
-  color: rgba(79, 195, 247, 0.95);
+  color: #00E5FF; /* mantiene el cian brillante para links */
   text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .content .text a:hover {
-  color: rgba(173, 232, 255, 1);
-  text-shadow: 0 0 10px rgba(173, 232, 255, 0.8);
+  color: #7FF9FF;
+  text-shadow: 0 0 10px rgba(127, 249, 255, 0.8);
 }
 
 /* Photo section */
@@ -72,11 +73,11 @@ body {
 
 .profile-photo {
   border-radius: 50%; 
-  width: 190px;
-  height: 190px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
-  border: 4px solid rgba(79, 195, 247, 0.9); /* círculo celeste */
-  box-shadow: 0 0 15px rgba(79, 195, 247, 0.6);
+  border: 4px solid #00E5FF; /* círculo cian brillante */
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
 }
 
 /* Navigation Bar */
@@ -100,7 +101,7 @@ nav a {
 }
 
 nav a:hover {
-  color: rgba(79, 195, 247, 0.95); /* hover celeste */
+  color: #00E5FF; /* hover cian */
 }
 </style>
 </head>
@@ -109,30 +110,16 @@ nav a:hover {
 <nav>
   <a href="index.html">Home</a>
   <a href="about.html">About Me</a>
-  <a href="analytics.html">Data Analytics and Modelling</a>
-  <a href="selected_work.html">Selected Work</a>
-  <a href="languages.html">Languages</a>
+  <a href="methods.html">Applied Methods</a>
+  <a href="publications.html">Selected Work</a>
 </nav>
 
 <div class="content">
   <div class="text">
     <h1>Nicolás Bodnariuk</h1>
-    <p>
-      I’m a data scientist and physical oceanographer with a strong background in applied mathematics and data analysis. 
-      My research focuses on extracting meaning from complex, high-dimensional datasets — often spanning terabytes — 
-      to better understand nonlinear dynamics and large-scale organisation in the climate system.
-    </p>
-    <p>
-      My work combines tools from dynamical systems theory, topology, and statistics to identify coherent patterns in 
-      oceanic and atmospheric circulation. I have also developed numerical models of idealised systems, such as the 
-      wind-driven double gyre, to explore their intrinsic variability under controlled conditions.
-    </p>
-    <p>
-      I have worked at <strong>CONICET</strong> (the Argentinian National Research Council), 
-      the <strong>CNRS</strong> (the French National Research Centre), 
-      and in the private sector, where I contributed to projects involving meteorological databases used for pollutant 
-      dispersion studies.
-    </p> 
+    <p>I’m a data scientist and physical oceanographer with a strong background in applied mathematics and data analysis. My experience focuses on extracting meaning from complex, high-dimensional datasets.</p>
+    <p>I’m interested in how mathematical and computational methods — from dynamical systems theory to machine learning — can be used to uncover hidden structures, model nonlinear processes, and deepen our understanding of complex systems.</p>
+    <p>I have experience handling and analysing large geophysical and meteorological datasets through my work at <strong>CONICET</strong> (the Argentinian National Research Council), <strong>CNRS</strong> (the French National Research Centre), and in the private sector.</p>
   </div>
   <div class="photo">
     <img src="profile_photo.jpeg" alt="Nicolás Bodnariuk" class="profile-photo">
