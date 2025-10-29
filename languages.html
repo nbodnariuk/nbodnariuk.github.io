@@ -5,132 +5,167 @@
 <title>Languages - Nicolás Bodnariuk</title>
 
 <style>
-/* === Consistencia global (sin barras blancas) === */
-html{
-  background:#0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
+/* === Global consistency (no white bars) === */
+html {
+  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
   scrollbar-gutter: stable both-edges;
 }
-@supports not (scrollbar-gutter: stable){ html{ overflow-y: scroll; } }
-*,*::before,*::after{ box-sizing:border-box; }
-img,video{ max-width:100%; height:auto; display:block; }
+@supports not (scrollbar-gutter: stable) { html { overflow-y: scroll; } }
+*, *::before, *::after { box-sizing: border-box; }
+img, video { max-width: 100%; height: auto; display: block; }
 
-body{
-  margin:0; padding:0; background:transparent; color:#f2f2f2;
-  font-family:"Segoe UI", Roboto, Arial, sans-serif;
-  min-height:100vh; overflow-x:hidden;
-}
-
-:root{
-  --nav-h:60px;
-  --cian:#00E5FF;
-  --orange:#FFB74D;
-  --panel:rgba(15,20,35,0.72);
-  --panel-soft:rgba(15,20,35,0.55);
-  --panel-alt:rgba(12, 26, 36, 0.72); /* panel distinto para DE */
-  --panel-alt-border: rgba(0,229,255,.35);
+body {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: #f2f2f2;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* === Barra de navegación (idéntica al Home) === */
-nav{
-  height:var(--nav-h);
-  display:flex; justify-content:center; align-items:center;
-  gap:50px; width:100%;
-  background-color:rgba(10,15,25,0.75);
-  backdrop-filter:blur(6px);
-  border-bottom:1px solid rgba(255,255,255,0.15);
-  position:sticky; top:0; z-index:1000;
-  box-shadow:0 4px 12px rgba(0,0,0,.4);
-}
-nav a{
-  color:rgba(230,230,230,.9); text-decoration:none;
-  font-weight:600; font-size:1.05rem; letter-spacing:.4px;
-  padding-inline:6px; transition:color .3s ease, text-shadow .3s ease;
-}
-nav a:hover{ color:var(--cian); text-shadow:0 0 8px rgba(0,229,255,.8); }
-nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55); }
-
-/* === Contenedor principal === */
-.content{
-  max-width:1100px; margin:60px auto; padding:40px 40px 48px;
-  background:var(--panel); backdrop-filter:blur(4px);
-  border:1px solid rgba(255,255,255,.15); border-radius:15px;
-  box-shadow:0 6px 25px rgba(0,0,0,.45);
+:root {
+  --nav-h: 60px;
+  --cian: #00E5FF;
+  --orange: #FFB74D;
+  --panel: rgba(15, 20, 35, 0.72);
+  --panel-soft: rgba(15, 20, 35, 0.55);
+  --panel-alt: rgba(12, 26, 36, 0.72);
+  --panel-alt-border: rgba(0, 229, 255, .35);
 }
 
-/* Encabezado */
-.header{
-  text-align:center; margin-bottom:10px;
+/* === Navigation bar (identical to Home) === */
+nav {
+  height: var(--nav-h);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  background-color: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
 }
-.header h1{
-  margin:0 0 8px; font-size:2rem; color:var(--orange);
-  text-shadow:0 0 12px rgba(255,183,77,.85);
+nav a {
+  color: rgba(230, 230, 230, .9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: .4px;
+  padding-inline: 6px;
+  transition: color .3s ease, text-shadow .3s ease;
 }
-.header p{
-  margin:0; font-size:1.05rem; color:rgba(235,245,255,.92);
-  text-shadow:0 0 6px rgba(0,0,0,.6);
+nav a:hover { color: var(--cian); text-shadow: 0 0 8px rgba(0,229,255,.8); }
+nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.55); }
+
+/* === Main container === */
+.content {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px 40px 48px;
+  background: var(--panel);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0,0,0,.45);
 }
 
-/* Grid de tarjetas */
-.grid{
-  display:grid; grid-template-columns: repeat(4, 1fr);
-  gap:18px; margin-top:24px;
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
 }
-@media (max-width: 1024px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }
-
-/* Tarjeta base */
-.card{
-  background:var(--panel-soft);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:14px; padding:18px 18px 16px;
-  box-shadow:0 6px 18px rgba(0,0,0,.35);
-}
-.card h3{
-  margin:0 0 10px; font-size:1.15rem; font-weight:800; letter-spacing:.3px;
-  display:flex; align-items:baseline; gap:10px;
-}
-.card p{
-  margin:6px 0 10px; font-size:.98rem; color:rgba(235,245,255,.94);
-  text-shadow:0 0 6px rgba(0,0,0,.55);
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--orange);
+  text-shadow: 0 0 12px rgba(255,183,77,.85);
 }
 
-/* Lista de competencias */
-.list{
-  display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;
+/* Grid of language cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
 }
-.chip{
-  font-size:.85rem; padding:6px 9px; border-radius:10px;
-  background:rgba(0,229,255,.10); border:1px solid rgba(0,229,255,.25);
-  color:#e8fdff;
+@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+/* Card base */
+.card {
+  background: var(--panel-soft);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
 }
-.chip--warm{
-  background:rgba(255,183,77,.10); border-color:rgba(255,183,77,.30);
-  color:#fff4e6;
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+.card p {
+  margin: 6px 0 10px;
+  font-size: .98rem;
+  color: rgba(235,245,255,.94);
+  text-shadow: 0 0 6px rgba(0,0,0,.55);
 }
 
-/* Barra de nivel (opcional, sutil) */
-.level{
-  height:8px; border-radius:999px; background:rgba(255,255,255,.12);
-  overflow:hidden; margin-top:12px; box-shadow: inset 0 1px 3px rgba(0,0,0,.35);
+/* List of skills */
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
 }
-.level > span{
-  display:block; height:100%; border-radius:999px;
-  background:linear-gradient(90deg, var(--cian), #7FF9FF);
-  box-shadow:0 0 10px rgba(0,229,255,.35);
-  width:0%;
+.chip {
+  font-size: .85rem;
+  padding: 6px 9px;
+  border-radius: 10px;
+  background: rgba(0,229,255,.10);
+  border: 1px solid rgba(0,229,255,.25);
+  color: #e8fdff;
 }
-.level--es > span{ width:100%; background:linear-gradient(90deg, var(--orange), #FFD180); }
-.level--en > span{ width:95%; }
-.level--fr > span{ width:85%; }
-.level--de > span{ width:65%; }
+.chip--warm {
+  background: rgba(255,183,77,.10);
+  border-color: rgba(255,183,77,.30);
+  color: #fff4e6;
+}
 
-/* Tarjeta “panel diferente” para Alemán */
-.card--alt{
-  background:var(--panel-alt);
-  border-color:var(--panel-alt-border);
-  box-shadow:0 6px 18px rgba(0,30,45,.45), inset 0 0 24px rgba(0,229,255,.05);
+/* Level bars */
+.level {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
+  overflow: hidden;
+  margin-top: 12px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.35);
 }
-.card--alt .chip{ background:rgba(0,229,255,.08); border-color:rgba(0,229,255,.22); }
+.level > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cian), #7FF9FF);
+  box-shadow: 0 0 10px rgba(0,229,255,.35);
+  width: 0%;
+}
+.level--es > span { width: 100%; background: linear-gradient(90deg, var(--orange), #FFD180); }
+.level--en > span { width: 95%; }
+.level--fr > span { width: 85%; }
+.level--de > span { width: 50%; }
+
+/* Alternate style for German */
+.card--alt {
+  background: var(--panel-alt);
+  border-color: var(--panel-alt-border);
+  box-shadow: 0 6px 18px rgba(0,30,45,.45), inset 0 0 24px rgba(0,229,255,.05);
+}
+.card--alt .chip { background: rgba(0,229,255,.08); border-color: rgba(0,229,255,.22); }
 </style>
 </head>
 
@@ -147,16 +182,15 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
 <section class="content">
   <header class="header">
     <h1>Languages</h1>
-    <p>Multilingual communication for research, teaching, and collaboration.</p>
   </header>
 
   <div class="grid">
     <!-- Spanish -->
     <article class="card">
       <h3>Spanish</h3>
-      <p>Competencias:</p>
+      <p>Skills:</p>
       <div class="list">
-        <span class="chip chip--warm">academicista writing</span>
+        <span class="chip chip--warm">academic writing</span>
         <span class="chip chip--warm">reports</span>
         <span class="chip chip--warm">conference talks</span>
         <span class="chip chip--warm">teaching</span>
@@ -168,9 +202,9 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
     <!-- English -->
     <article class="card">
       <h3>English</h3>
-      <p>Competencies:</p>
+      <p>Skills:</p>
       <div class="list">
-        <span class="chip">academicista writing</span>
+        <span class="chip">academic writing</span>
         <span class="chip">reports</span>
         <span class="chip">conference talks</span>
         <span class="chip">teaching</span>
@@ -181,21 +215,21 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
 
     <!-- French -->
     <article class="card">
-      <h3>Français</h3>
-      <p>Compétences:</p>
+      <h3>French</h3>
+      <p>Skills:</p>
       <div class="list">
         <span class="chip">academic writing</span>
         <span class="chip">science communication</span>
         <span class="chip">everyday communication</span>
-        <span class="chip">academicista discussions</span>
+        <span class="chip">academic discussions</span>
       </div>
       <div class="level level--fr" aria-label="French proficiency"><span></span></div>
     </article>
 
-    <!-- German (panel diferente) -->
+    <!-- German -->
     <article class="card card--alt">
-      <h3>Deutsch</h3>
-      <p>Kompetenzen:</p>
+      <h3>German</h3>
+      <p>Skills:</p>
       <div class="list">
         <span class="chip">everyday communication</span>
         <span class="chip">reading skills</span>
