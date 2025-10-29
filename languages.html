@@ -103,17 +103,22 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
   padding: 18px 18px 16px;
   box-shadow: 0 6px 18px rgba(0,0,0,.35);
 }
-.card h3 {
-  margin: 0 0 10px;
+
+/* Language (orange) + Level (white, smaller) */
+.lang {
+  margin: 0;
   font-size: 1.15rem;
   font-weight: 800;
   letter-spacing: .3px;
+  color: var(--orange);
+  text-shadow: 0 0 10px rgba(255,183,77,.25);
 }
-.card p {
-  margin: 6px 0 10px;
-  font-size: .98rem;
-  color: rgba(235,245,255,.94);
-  text-shadow: 0 0 6px rgba(0,0,0,.55);
+.level-title {
+  margin: 2px 0 10px;
+  font-size: .95rem;       /* más chico */
+  color: #ffffff;          /* blanco */
+  opacity: .92;
+  font-weight: 700;
 }
 
 /* List of skills */
@@ -121,7 +126,10 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: 6px;
+  /* Espacio mínimo para alinear la barra entre tarjetas
+     (≈ dos filas de chips aunque haya menos) */
+  min-height: 70px;
 }
 .chip {
   font-size: .85rem;
@@ -157,9 +165,9 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
 .level--es > span { width: 100%; background: linear-gradient(90deg, var(--orange), #FFD180); }
 .level--en > span { width: 95%; }
 .level--fr > span { width: 85%; }
-.level--de > span { width: 50%; }
+.level--de > span { width: 50%; }  /* German at half */
 
-/* Alternate style for German */
+/* Alternate style for German (different panel) */
 .card--alt {
   background: var(--panel-alt);
   border-color: var(--panel-alt-border);
@@ -187,9 +195,8 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
   <div class="grid">
     <!-- Spanish -->
     <article class="card">
-      <h3>Spanish </h3>
-      <h3>Native</h3>
-      <p>Skills:</p>
+      <h3 class="lang">Spanish</h3>
+      <div class="level-title">Native</div>
       <div class="list">
         <span class="chip chip--warm">academic writing</span>
         <span class="chip chip--warm">reports</span>
@@ -197,14 +204,15 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
         <span class="chip chip--warm">teaching</span>
         <span class="chip chip--warm">science communication</span>
       </div>
-      <div class="level level--es" aria-label="Spanish proficiency"><span></span></div>
+      <div class="level level--es" aria-label="Spanish proficiency">
+        <span></span>
+      </div>
     </article>
 
     <!-- English -->
     <article class="card">
-      <h3>English</h3>
-      <h3>Advanced (C2)</h3>
-      <p>Skills:</p>
+      <h3 class="lang">English</h3>
+      <div class="level-title">Advanced (C2)</div>
       <div class="list">
         <span class="chip">academic writing</span>
         <span class="chip">reports</span>
@@ -212,36 +220,43 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
         <span class="chip">teaching</span>
         <span class="chip">science communication</span>
       </div>
-      <div class="level level--en" aria-label="English proficiency"><span></span></div>
+      <div class="level level--en" aria-label="English proficiency">
+        <span></span>
+      </div>
     </article>
 
     <!-- French -->
     <article class="card">
-      <h3>French </h3>
-      <h3>Advanced (C1)</h3>
-      <p>Skills:</p>
+      <h3 class="lang">French</h3>
+      <div class="level-title">Advanced (C1)</div>
       <div class="list">
-        <span class="chip">academic writing/discussions</span>
+        <span class="chip">academic writing</span>
         <span class="chip">science communication</span>
-        <span class="chip"> </span>
+        <span class="chip">everyday communication</span>
+        <span class="chip">academic discussions</span>
+        <!-- NO empty chip; el espacio lo da min-height -->
       </div>
-      <div class="level level--fr" aria-label="French proficiency"><span></span></div>
+      <div class="level level--fr" aria-label="French proficiency">
+        <span></span>
+      </div>
     </article>
 
     <!-- German -->
     <article class="card card--alt">
-      <h3>German </h3>
-      <h3>Intermediate (B1)</h3>
-      <p>Skills:</p>
+      <h3 class="lang">German</h3>
+      <div class="level-title">Intermediate (B1)</div>
       <div class="list">
         <span class="chip">everyday communication</span>
         <span class="chip">reading skills</span>
-        <span class="chip"> </span>
+        <!-- NO empty chip; el espacio lo da min-height -->
       </div>
-      <div class="level level--de" aria-label="German proficiency"><span></span></div>
+      <div class="level level--de" aria-label="German proficiency">
+        <span></span>
+      </div>
     </article>
   </div>
 </section>
 
 </body>
 </html>
+
