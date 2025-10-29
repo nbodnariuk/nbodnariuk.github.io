@@ -77,13 +77,24 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
 /* Header */
 .header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 .header h1 {
   margin: 0;
   font-size: 2rem;
   color: var(--orange);
   text-shadow: 0 0 12px rgba(255,183,77,.85);
+}
+
+/* Intro text */
+.intro {
+  text-align: center;
+  color: rgba(245,245,245,0.92);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 10px auto 40px;
+  max-width: 800px;
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
 }
 
 /* Grid */
@@ -118,7 +129,7 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
   text-shadow: 0 0 10px rgba(255,183,77,.25);
 }
 .level-title {
-  margin: 2px 0 20px;   /* espacio mayor debajo del nivel */
+  margin: 2px 0 20px;
   font-size: .95rem;
   color: #ffffff;
   opacity: .92;
@@ -130,7 +141,7 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 25px;  /* espacio entre globos y barra */
+  margin-bottom: 25px;
   min-height: 80px;
 }
 .chip {
@@ -153,7 +164,7 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
   border-radius: 999px;
   background: rgba(255,255,255,.12);
   overflow: hidden;
-  margin-top: auto;      /* la barra siempre al fondo */
+  margin-top: auto;
   box-shadow: inset 0 1px 3px rgba(0,0,0,.35);
 }
 .level > span {
@@ -194,6 +205,10 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
     <h1>Languages</h1>
   </header>
 
+  <p class="intro">
+Languages through which I have developed my academic and professional activities in Argentina and abroad
+  </p>
+
   <div class="grid">
     <!-- Spanish -->
     <article class="card">
@@ -230,6 +245,7 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
       <div class="list">
         <span class="chip">academic writing</span>
         <span class="chip">science communication</span>
+        <span class="chip">everyday communication</span>
         <span class="chip">academic discussions</span>
       </div>
       <div class="level level--fr" aria-label="French proficiency"><span></span></div>
