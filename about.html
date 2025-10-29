@@ -74,7 +74,7 @@
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
   }
 
-  /* Video container */
+  /* Video wrapper */
   .video-wrapper {
     display: flex;
     flex-direction: column;
@@ -108,22 +108,24 @@
     text-align: justify;
   }
 
-  /* CV link below the video box */
+  /* CV link BELOW the video (outside the box) */
   .cv-link {
-    font-size: 1.1em;
+    font-size: 1.4em;
     color: #00E5FF;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
-    margin-top: 15px;
-    transition: color 0.3s ease;
+    margin-top: 70px; /* approx 2cm spacing below the box */
+    transition: color 0.3s ease, transform 0.2s ease;
     display: inline-block;
   }
 
   .cv-link:hover {
     text-decoration: underline;
     color: #7FF9FF;
+    transform: scale(1.05);
   }
+
 </style>
 </head>
 <body>
@@ -161,7 +163,9 @@
         Integration in time of a system of partial differential equations representing a wind-driven double-gyre circulation. The spatial field displays the stream function in physical space, while the time series shows the signal at the black dot location in the figure.
       </div>
     </div>
-    <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
+
+    <!-- CV link now OUTSIDE the box -->
+    <a href="CV.pdf" class="cv-link">📄 Curriculum Vitae</a>
   </div>
 </div>
 
