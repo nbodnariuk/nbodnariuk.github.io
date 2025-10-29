@@ -26,9 +26,11 @@ body{
   --orange:#FFB74D;
   --panel:rgba(15,20,35,0.72);
   --panel-soft:rgba(15,20,35,0.55);
+  --panel-alt:rgba(12, 26, 36, 0.72); /* panel distinto para DE */
+  --panel-alt-border: rgba(0,229,255,.35);
 }
 
-/* === Barra de navegación (idéntica al index) === */
+/* === Barra de navegación (idéntica al Home) === */
 nav{
   height:var(--nav-h);
   display:flex; justify-content:center; align-items:center;
@@ -45,7 +47,6 @@ nav a{
   padding-inline:6px; transition:color .3s ease, text-shadow .3s ease;
 }
 nav a:hover{ color:var(--cian); text-shadow:0 0 8px rgba(0,229,255,.8); }
-/* Opcional: marcar pestaña activa */
 nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55); }
 
 /* === Contenedor principal === */
@@ -58,7 +59,7 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
 
 /* Encabezado */
 .header{
-  text-align:center; margin-bottom:28px;
+  text-align:center; margin-bottom:10px;
 }
 .header h1{
   margin:0 0 8px; font-size:2rem; color:var(--orange);
@@ -69,25 +70,6 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
   text-shadow:0 0 6px rgba(0,0,0,.6);
 }
 
-/* Badges de idiomas (resaltan arriba) */
-.badges{
-  margin:22px auto 8px; display:flex; flex-wrap:wrap; gap:10px;
-  justify-content:center;
-}
-.badge{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:8px 14px; border-radius:999px;
-  background:linear-gradient(180deg, rgba(0,229,255,.18), rgba(0,229,255,.08));
-  border:1px solid rgba(0,229,255,.35);
-  box-shadow:0 0 14px rgba(0,229,255,.12) inset, 0 4px 16px rgba(0,0,0,.25);
-  font-weight:700; letter-spacing:.2px;
-}
-.badge--primary{
-  background:linear-gradient(180deg, rgba(255,183,77,.22), rgba(255,183,77,.10));
-  border-color:rgba(255,183,77,.45);
-  box-shadow:0 0 14px rgba(255,183,77,.14) inset, 0 4px 16px rgba(0,0,0,.25);
-}
-
 /* Grid de tarjetas */
 .grid{
   display:grid; grid-template-columns: repeat(4, 1fr);
@@ -96,7 +78,7 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
 @media (max-width: 1024px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px){ .grid{ grid-template-columns: 1fr; } }
 
-/* Tarjeta */
+/* Tarjeta base */
 .card{
   background:var(--panel-soft);
   border:1px solid rgba(255,255,255,.14);
@@ -104,23 +86,32 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
   box-shadow:0 6px 18px rgba(0,0,0,.35);
 }
 .card h3{
-  margin:0 0 6px; font-size:1.15rem; font-weight:800; letter-spacing:.3px;
+  margin:0 0 10px; font-size:1.15rem; font-weight:800; letter-spacing:.3px;
   display:flex; align-items:baseline; gap:10px;
-}
-.card h3 .tag{
-  font-size:.75rem; font-weight:800; padding:3px 8px; border-radius:999px;
-  background:rgba(0,229,255,.12); border:1px solid rgba(0,229,255,.35);
-  color:#e8fdff;
 }
 .card p{
   margin:6px 0 10px; font-size:.98rem; color:rgba(235,245,255,.94);
   text-shadow:0 0 6px rgba(0,0,0,.55);
 }
 
-/* Barra de nivel (minimal) */
+/* Lista de competencias */
+.list{
+  display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;
+}
+.chip{
+  font-size:.85rem; padding:6px 9px; border-radius:10px;
+  background:rgba(0,229,255,.10); border:1px solid rgba(0,229,255,.25);
+  color:#e8fdff;
+}
+.chip--warm{
+  background:rgba(255,183,77,.10); border-color:rgba(255,183,77,.30);
+  color:#fff4e6;
+}
+
+/* Barra de nivel (opcional, sutil) */
 .level{
   height:8px; border-radius:999px; background:rgba(255,255,255,.12);
-  overflow:hidden; margin-top:8px; box-shadow: inset 0 1px 3px rgba(0,0,0,.35);
+  overflow:hidden; margin-top:12px; box-shadow: inset 0 1px 3px rgba(0,0,0,.35);
 }
 .level > span{
   display:block; height:100%; border-radius:999px;
@@ -128,25 +119,18 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
   box-shadow:0 0 10px rgba(0,229,255,.35);
   width:0%;
 }
-/* Anchuras por idioma */
 .level--es > span{ width:100%; background:linear-gradient(90deg, var(--orange), #FFD180); }
 .level--en > span{ width:95%; }
 .level--fr > span{ width:85%; }
 .level--de > span{ width:65%; }
 
-/* Línea de bullets de uso */
-.bullets{
-  display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
+/* Tarjeta “panel diferente” para Alemán */
+.card--alt{
+  background:var(--panel-alt);
+  border-color:var(--panel-alt-border);
+  box-shadow:0 6px 18px rgba(0,30,45,.45), inset 0 0 24px rgba(0,229,255,.05);
 }
-.bullet{
-  font-size:.82rem; padding:5px 8px; border-radius:8px;
-  background:rgba(0,229,255,.10); border:1px solid rgba(0,229,255,.25);
-  color:#e8fdff;
-}
-.bullet--warm{
-  background:rgba(255,183,77,.10); border-color:rgba(255,183,77,.30);
-  color:#fff4e6;
-}
+.card--alt .chip{ background:rgba(0,229,255,.08); border-color:rgba(0,229,255,.22); }
 </style>
 </head>
 
@@ -164,54 +148,57 @@ nav a[aria-current="page"]{ color:#fff; text-shadow:0 0 8px rgba(0,229,255,.55);
   <header class="header">
     <h1>Languages</h1>
     <p>Multilingual communication for research, teaching, and collaboration.</p>
-
   </header>
 
   <div class="grid">
     <!-- Spanish -->
     <article class="card">
-      <h3>Spanish <span class="tag">Native</span></h3>
-      <p>Academic writing, teaching, and science communication.</p>
-      <div class="bullets">
-        <span class="bullet bullet--warm">Papers & reports</span>
-        <span class="bullet bullet--warm">Outreach</span>
-        <span class="bullet bullet--warm">Lecturing</span>
+      <h3>Spanish</h3>
+      <p>Competencias:</p>
+      <div class="list">
+        <span class="chip chip--warm">academicista writing</span>
+        <span class="chip chip--warm">reports</span>
+        <span class="chip chip--warm">conference talks</span>
+        <span class="chip chip--warm">teaching</span>
+        <span class="chip chip--warm">science communication</span>
       </div>
       <div class="level level--es" aria-label="Spanish proficiency"><span></span></div>
     </article>
 
     <!-- English -->
     <article class="card">
-      <h3>English <span class="tag">C2</span></h3>
-      <p>Conference talks, international collaboration, and peer review.</p>
-      <div class="bullets">
-        <span class="bullet">Talks</span>
-        <span class="bullet">Collaboration</span>
-        <span class="bullet">Peer review</span>
+      <h3>English</h3>
+      <p>Competencies:</p>
+      <div class="list">
+        <span class="chip">academicista writing</span>
+        <span class="chip">reports</span>
+        <span class="chip">conference talks</span>
+        <span class="chip">teaching</span>
+        <span class="chip">science communication</span>
       </div>
       <div class="level level--en" aria-label="English proficiency"><span></span></div>
     </article>
 
     <!-- French -->
     <article class="card">
-      <h3>French <span class="tag">C1</span></h3>
-      <p>Research stays and academic discussions at CNRS/LMD.</p>
-      <div class="bullets">
-        <span class="bullet">Seminars</span>
-        <span class="bullet">Reading</span>
-        <span class="bullet">Collab.</span>
+      <h3>Français</h3>
+      <p>Compétences:</p>
+      <div class="list">
+        <span class="chip">academic writing</span>
+        <span class="chip">science communication</span>
+        <span class="chip">everyday communication</span>
+        <span class="chip">academicista discussions</span>
       </div>
       <div class="level level--fr" aria-label="French proficiency"><span></span></div>
     </article>
 
-    <!-- German -->
-    <article class="card">
-      <h3>German <span class="tag">B1</span></h3>
-      <p>Technical reading and everyday communication.</p>
-      <div class="bullets">
-        <span class="bullet">Technical</span>
-        <span class="bullet">Everyday</span>
-        <span class="bullet">Progress</span>
+    <!-- German (panel diferente) -->
+    <article class="card card--alt">
+      <h3>Deutsch</h3>
+      <p>Kompetenzen:</p>
+      <div class="list">
+        <span class="chip">everyday communication</span>
+        <span class="chip">reading skills</span>
       </div>
       <div class="level level--de" aria-label="German proficiency"><span></span></div>
     </article>
