@@ -73,40 +73,27 @@ nav a:hover{ color:var(--cian); text-shadow:0 0 8px rgba(0,229,255,.8); }
   font-size:1.2rem; line-height:1.8; margin:0 0 12px;
   color:rgba(240,240,240,.95); text-shadow:0 0 6px rgba(0,0,0,.6);
   padding-left:20px; border-left:3px solid rgba(79,195,247,.9);
-  transition:transform .3s ease;
 }
-languages-text li:hover{ transform:translateX(4px); }
 
-/* Figura minimalista */
-.lang-minimal{
+/* Figura: retícula esférica minimalista */
+.lang-mesh{
   flex:0 0 420px; max-width:40vw;
   display:flex; justify-content:center; align-items:center;
   filter: drop-shadow(0 10px 24px rgba(0,0,0,.45));
 }
-.lang-minimal svg{ width:100%; height:auto; display:block; opacity:.98; }
+.lang-mesh svg{ width:100%; height:auto; display:block; opacity:.98; }
 
-/* Retícula suave */
-.grid{ stroke:rgba(255,255,255,.14); stroke-width:1; fill:none; }
+/* Estilos de la retícula y nodos */
+.grid   { stroke:var(--cian);   stroke-width:1.6; fill:none; opacity:.9; }
+.node   { fill:var(--orange); }
 
-/* Nodos y uniones */
-.node{ fill:var(--orange); }
-.link{ stroke:var(--cian); stroke-width:2.6; fill:none; opacity:.9; }
-
-/* Animación sutil (opcional) */
-@keyframes flow{
-  0%{ stroke-dashoffset:120; opacity:.6; }
-  50%{ stroke-dashoffset:60;  opacity:1; }
-  100%{ stroke-dashoffset:0;  opacity:.6; }
-}
-.link.dashed{
-  stroke-dasharray:12 10;
-  animation:flow 6s ease-in-out infinite;
-}
+/* Opcional: línea exterior suave */
+.sphere { stroke:rgba(255,255,255,.12); stroke-width:2; fill:none; }
 
 /* Responsive */
 @media (max-width: 900px){
   .languages-layout{ flex-direction:column; }
-  .lang-minimal{ order:2; flex:0 0 auto; max-width:100%; }
+  .lang-mesh{ order:2; flex:0 0 auto; max-width:100%; }
 }
 </style>
 </head>
@@ -127,7 +114,7 @@ languages-text li:hover{ transform:translateX(4px); }
     <div class="languages-text">
       <h1>Languages</h1>
       <p>
-        Languages connect people and ideas across the globe. Below is a minimalist view of global hubs and their connections.
+        A low-resolution spherical coordinate mesh illustrating global language connectivity. Minimal, legible, and consistent with the site’s palette.
       </p>
       <ul>
         <li><strong>Spanish:</strong> Native</li>
@@ -137,53 +124,63 @@ languages-text li:hover{ transform:translateX(4px); }
       </ul>
     </div>
 
-    <!-- === Figura: retícula esférica poco densa + nodos naranjas + uniones celestes === -->
-    <figure class="lang-minimal" aria-label="Minimal spherical grid with language hubs">
+    <!-- === Figura: retícula esférica (3 meridianos × 3 paralelos) con nodos en intersecciones === -->
+    <figure class="lang-mesh" aria-label="Low-resolution spherical coordinate mesh">
       <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" role="img">
-        <!-- Círculo base -->
-        <circle cx="320" cy="320" r="290" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="2"/>
+        <!-- Esfera exterior -->
+        <circle class="sphere" cx="320" cy="320" r="290"/>
 
-        <!-- Retícula poco densa (paralelos/meridianos) -->
-        <g class="grid">
-          <!-- paralelos -->
-          <ellipse cx="320" cy="320" rx="260" ry="90"/>
-          <ellipse cx="320" cy="320" rx="200" ry="65"/>
-          <ellipse cx="320" cy="320" rx="140" ry="45"/>
-          <!-- meridianos -->
-          <circle  cx="320" cy="320" r="260"/>
-          <circle  cx="320" cy="320" r="200"/>
-          <circle  cx="320" cy="320" r="140"/>
+        <!-- Clip para limitar trazos al hemisferio -->
+        <defs>
+          <clipPath id="hemisphere">
+            <circle cx="320" cy="320" r="290"/>
+          </clipPath>
+        </defs>
+
+        <!-- PARALelos (2 latitudes + ecuador) -->
+        <!-- 30°N y 30°S como elipses; ecuador como línea recta -->
+        <g class="grid" clip-path="url(#hemisphere)">
+          <!-- 30°N -->
+          <ellipse cx="320" cy="230" rx="260" ry="45"/>
+          <!-- Ecuador (línea recta) -->
+          <line x1="60" y1="320" x2="580" y2="320"/>
+          <!-- 30°S -->
+          <ellipse cx="320" cy="410" rx="260" ry="45"/>
         </g>
 
-        <!-- Nodos (posiciones estilizadas) -->
+        <!-- MERIDIANOS (izq-curvo, centro-recto, der-curvo) -->
+        <g class="grid" clip-path="url(#hemisphere)">
+          <!-- Meridiano central (recto) -->
+          <line x1="320" y1="30" x2="320" y2="610"/>
+
+          <!-- Meridiano izquierdo (curva bézier simulando gran círculo) -->
+          <path d="M320,30 C 250,170 250,470 320,610"/>
+
+          <!-- Meridiano derecho (simétrico) -->
+          <path d="M320,30 C 390,170 390,470 320,610"/>
+        </g>
+
+        <!-- NODOS EN INTERSECCIONES (aprox) -->
+        <!-- Intersecciones en 30°N (y=230) -->
         <g>
-          <!-- Américas -->
-          <circle class="node" cx="210" cy="410" r="6"/> <!-- Buenos Aires aprox -->
-          <circle class="node" cx="180" cy="300" r="6"/> <!-- México DF aprox -->
-          <circle class="node" cx="220" cy="260" r="6"/> <!-- NYC/Boston aprox -->
-          <!-- Europa / África N. -->
-          <circle class="node" cx="390" cy="250" r="6"/> <!-- Londres aprox -->
-          <circle class="node" cx="410" cy="270" r="6"/> <!-- París aprox -->
-          <circle class="node" cx="440" cy="260" r="6"/> <!-- Berlín aprox -->
-          <circle class="node" cx="385" cy="295" r="6"/> <!-- Madrid aprox -->
-          <circle class="node" cx="430" cy="330" r="6"/> <!-- Magreb aprox -->
-          <!-- Quebec -->
-          <circle class="node" cx="240" cy="220" r="6"/> <!-- Quebec aprox -->
+          <circle class="node" cx="220" cy="230" r="6"/>  <!-- izq ∩ 30N -->
+          <circle class="node" cx="320" cy="230" r="6"/>  <!-- centro ∩ 30N -->
+          <circle class="node" cx="420" cy="230" r="6"/>  <!-- der ∩ 30N -->
         </g>
 
-        <!-- Uniones (celestes) -->
-        <!-- Español -->
-        <path class="link dashed" d="M210,410 C270,370 340,330 385,295"/> <!-- BA → Madrid -->
-        <path class="link dashed" d="M210,410 C240,360 220,320 180,300"/> <!-- BA → México -->
-        <path class="link dashed" d="M210,410 C230,330 235,260 240,220"/> <!-- BA → Quebec -->
+        <!-- Intersecciones en Ecuador (y=320) -->
+        <g>
+          <circle class="node" cx="260" cy="320" r="6"/>  <!-- izq ∩ ecu -->
+          <circle class="node" cx="320" cy="320" r="6"/>  <!-- centro ∩ ecu -->
+          <circle class="node" cx="380" cy="320" r="6"/>  <!-- der ∩ ecu -->
+        </g>
 
-        <!-- Inglés -->
-        <path class="link dashed" d="M220,260 C290,250 350,245 390,250"/> <!-- US → London -->
-        <path class="link dashed" d="M220,260 C310,255 380,252 440,260"/> <!-- US → Berlin -->
-
-        <!-- Francés -->
-        <path class="link dashed" d="M410,270 C360,255 300,238 240,220"/> <!-- Paris → Quebec -->
-        <path class="link dashed" d="M410,270 C415,290 420,310 430,330"/> <!-- Paris → Magreb -->
+        <!-- Intersecciones en 30°S (y=410) -->
+        <g>
+          <circle class="node" cx="220" cy="410" r="6"/>  <!-- izq ∩ 30S -->
+          <circle class="node" cx="320" cy="410" r="6"/>  <!-- centro ∩ 30S -->
+          <circle class="node" cx="420" cy="410" r="6"/>  <!-- der ∩ 30S -->
+        </g>
       </svg>
     </figure>
 
