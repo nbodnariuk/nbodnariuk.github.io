@@ -5,25 +5,43 @@
 <title>About Me - Nicolás Bodnariuk</title>
 
 <style>
-body {
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-image: url('fondo_2.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: #f2f2f2;
+/* ===== Consistencia entre pestañas ===== */
+/* Evitar “salto” por la barra de scroll */
+html { scrollbar-gutter: stable both-edges; }
+@supports not (scrollbar-gutter: stable) {
+  html { overflow-y: scroll; }
 }
 
-/* Nav igual a index.html */
+/* Medidas consistentes */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Fondo consistente y altura mínima */
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  background-image: url('fondo_2.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* ===== Navegación (igual en todas las páginas) ===== */
+:root { --nav-h: 60px; }
 nav {
-  background-color: rgba(10, 15, 25, 0.75);
-  padding: 15px 0;
-  text-align: center;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;                /* sin padding vertical para altura exacta */
   position: sticky;
   top: 0;
   z-index: 1000;
+  background-color: rgba(10, 15, 25, 0.75);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
@@ -36,11 +54,11 @@ nav a {
 }
 nav a:hover { color: #00E5FF; }
 
-/* Cuadro principal */
+/* ===== Contenido ===== */
 .content {
   display: flex;
   max-width: 900px;
-  margin: 60px auto;
+  margin: 60px auto;              /* mismo margen que en Home */
   gap: 30px;
   align-items: flex-start;
   background-color: rgba(15, 20, 35, 0.72);
@@ -96,19 +114,19 @@ video { width: 100%; height: auto; display: block; }
   text-align: justify;
 }
 
-/* Link al CV con flecha a la derecha */
+/* Link al CV con flecha a la derecha y bajado 1.5 cm */
 .cv-link {
   font-size: 1.2rem;
   color: #FFB74D;
   font-weight: 600;
   text-decoration: none;
   align-self: center;
-  margin-top: 1.5cm;   /* bajado 1.5 cm */
+  margin-top: 1.5cm;              /* bajado 1.5 cm */
   position: relative;
   transition: color 0.3s ease, transform 0.2s ease;
 }
 .cv-link::after {
-  content: "→";                 /* flecha a la derecha */
+  content: "→";                    /* flecha a la derecha */
   margin-left: 10px;
   display: inline-block;
   transition: transform 0.3s ease;
@@ -120,6 +138,11 @@ video { width: 100%; height: auto; display: block; }
 }
 .cv-link:hover::after {
   transform: translateX(3px);
+}
+
+/* Evitar jank del fondo fijo en móviles */
+@media (max-width: 768px) {
+  body { background-attachment: scroll; }
 }
 </style>
 </head>
@@ -167,3 +190,4 @@ video { width: 100%; height: auto; display: block; }
 
 </body>
 </html>
+
