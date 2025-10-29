@@ -41,7 +41,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;  /* espacio uniforme entre enlaces */
+  gap: 50px; /* 🔹 mayor separación entre pestañas */
   width: 100%;
   background-color: rgba(10, 15, 25, 0.75);
   backdrop-filter: blur(6px);
@@ -58,6 +58,7 @@ nav a {
   font-weight: 600;
   font-size: 1.05rem;
   letter-spacing: 0.4px;
+  padding-inline: 6px; /* 🔹 más área clickeable */
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
@@ -114,30 +115,39 @@ nav a:hover {
   text-shadow: 0 0 10px rgba(127, 249, 255, 0.8);
 }
 
-/* Sección de foto */
+/* ===== Sección de foto ===== */
 .content .photo {
-  flex: 0 0 160px;
+  flex: 0 0 auto; /* 🔹 no permite que se comprima la imagen */
   text-align: right;
 }
 
 .profile-photo {
-  border-radius: 50%;
+  display: block;
   width: 200px;
-  height: 200px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1; /* 🔹 asegura forma cuadrada */
+  height: auto;
   object-fit: cover;
+  border-radius: 50%; /* 🔹 círculo perfecto */
   border: 4px solid #00E5FF;
   box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
 }
 
-/* Evitar jank del fondo fijo en móviles */
+/* Responsive: mantiene círculo y espaciado */
 @media (max-width: 768px) {
   body { background-attachment: scroll; }
-  nav { flex-wrap: wrap; gap: 20px; }
+  nav { flex-wrap: wrap; gap: 25px; }
   .content {
     flex-direction: column;
     text-align: center;
   }
-  .content .photo { margin-top: 20px; text-align: center; }
+  .content .photo {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .profile-photo {
+    width: clamp(140px, 35vw, 200px);
+  }
 }
 </style>
 </head>
@@ -166,4 +176,3 @@ nav a:hover {
 
 </body>
 </html>
-
