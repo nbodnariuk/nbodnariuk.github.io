@@ -3,46 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>Home - Nicolás Bodnariuk</title>
+<link rel="stylesheet" href="style.css">
 
-<!-- Enlace al estilo global unificado -->
-<link rel="stylesheet" href="style_final.css">
+<style>
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('fondo_2.png'); /* tu fondo */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #f2f2f2;
+}
 
-</head>
-<body>
+/* Semi-transparent container for readability */
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px;
+  background-color: rgba(15, 20, 35, 0.72); /* color oscuro con transparencia controlada */
+  backdrop-filter: blur(4px); /* efecto sutil de difuminado */
+  max-width: 900px;
+  margin: 80px auto;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* borde suave */
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+}
 
-<!-- Barra de navegación (idéntica para todas las páginas) -->
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About Me</a>
-  <a href="analytics.html">Data Analytics and Modelling</a>
-  <a href="selected_work.html">Selected Work</a>
-  <a href="languages.html">Languages</a>
-</nav>
+/* Text section */
+.content .text {
+  flex: 1;
+  margin-right: 20px;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* leve contraste */
+}
 
-<!-- Contenido principal -->
-<div class="content">
-  <div class="text">
-    <h1>Nicolás Bodnariuk</h1>
-    <p>
-      I’m a data scientist and physical oceanographer with a strong background in applied mathematics and data analysis. 
-      My experience focuses on extracting meaning from complex, high-dimensional datasets — ranging from climate and ocean models to large-scale environmental databases.
-    </p>
-    <p>
-      I’m interested in how mathematical and computational methods — from dynamical systems theory to machine learning — 
-      can be used to uncover hidden structures, model nonlinear processes, and deepen our understanding of complex systems.
-    </p>
-    <p>
-      I have experience handling and analysing large geophysical and meteorological datasets through my work at 
-      <strong>CONICET</strong> (the Argentinian National Research Council), 
-      <strong>CNRS</strong> (the French National Research Centre), 
-      and in the private sector.
-    </p>
-  </div>
-
-  <div class="photo">
-    <img src="profile_photo.jpeg" alt="Nicolás Bodnariuk" class="profile-photo">
-  </div>
-</div>
-
-</body>
-</html>
+.content .text h1 {
+  color: rgba(79, 195, 247, 0.95); /* celeste azulado que resalta*
