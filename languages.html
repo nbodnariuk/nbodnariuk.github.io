@@ -10,19 +10,14 @@ html{
   background:#0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
   scrollbar-gutter: stable both-edges;
 }
-@supports not (scrollbar-gutter: stable){
-  html{ overflow-y: scroll; }
-}
-*,*::before,*::after{ box-sizing: border-box; }
+@supports not (scrollbar-gutter: stable){ html{ overflow-y: scroll; } }
+*,*::before,*::after{ box-sizing:border-box; }
 img,video{ max-width:100%; height:auto; display:block; }
 
 body{
-  margin:0; padding:0;
+  margin:0; padding:0; background:transparent; color:#f2f2f2;
   font-family:"Segoe UI", Roboto, Arial, sans-serif;
-  color:#f2f2f2;
-  background:transparent;          /* fondo lo maneja <html> */
-  min-height:100vh;
-  overflow-x:hidden;
+  min-height:100vh; overflow-x:hidden;
 }
 
 :root{
@@ -32,14 +27,11 @@ body{
   --panel:rgba(15,20,35,0.72);
 }
 
-/* === Navegación (idéntica al index) === */
+/* === Barra de navegación (idéntica al index) === */
 nav{
   height:var(--nav-h);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:50px;                        /* separación entre pestañas */
-  width:100%;
+  display:flex; justify-content:center; align-items:center;
+  gap:50px; width:100%;
   background-color:rgba(10,15,25,0.75);
   backdrop-filter:blur(6px);
   border-bottom:1px solid rgba(255,255,255,0.15);
@@ -47,94 +39,74 @@ nav{
   box-shadow:0 4px 12px rgba(0,0,0,.4);
 }
 nav a{
-  color:rgba(230,230,230,.9);
-  text-decoration:none;
-  font-weight:600;
-  font-size:1.05rem;
-  letter-spacing:.4px;
-  padding-inline:6px;
-  transition:color .3s ease, text-shadow .3s ease;
+  color:rgba(230,230,230,.9); text-decoration:none;
+  font-weight:600; font-size:1.05rem; letter-spacing:.4px;
+  padding-inline:6px; transition:color .3s ease, text-shadow .3s ease;
 }
-nav a:hover{
-  color:var(--cian);
-  text-shadow:0 0 8px rgba(0,229,255,.8);
-}
+nav a:hover{ color:var(--cian); text-shadow:0 0 8px rgba(0,229,255,.8); }
 
 /* === Contenedor principal === */
 .content{
-  max-width:1100px;                /* más ancho para que el texto respire */
-  margin:60px auto;
-  padding:40px;
-  background:var(--panel);
-  backdrop-filter:blur(4px);
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:15px;
+  max-width:1100px; margin:60px auto; padding:40px;
+  background:var(--panel); backdrop-filter:blur(4px);
+  border:1px solid rgba(255,255,255,.15); border-radius:15px;
   box-shadow:0 6px 25px rgba(0,0,0,.45);
 }
 
-/* Layout de la sección: texto + figura */
-.languages-layout{
-  display:flex;
-  gap:32px;
-  align-items:flex-start;
-}
+/* Layout: texto + figura */
+.languages-layout{ display:flex; gap:32px; align-items:flex-start; }
 
-/* Columna de texto */
+/* Texto */
+.languages-text{ flex:1 1 520px; }
 .languages-text h1{
-  text-align:center;
-  color:var(--orange);
+  text-align:center; color:var(--orange);
   text-shadow:0 0 12px rgba(255,183,77,.8);
-  font-size:2rem;
-  margin:0 0 24px;
+  font-size:2rem; margin:0 0 24px;
 }
 .languages-text p{
-  font-size:1.15rem;
-  line-height:1.6;
-  color:rgba(240,240,240,.95);
-  text-shadow:0 0 6px rgba(0,0,0,.6);
+  font-size:1.15rem; line-height:1.6;
+  color:rgba(240,240,240,.95); text-shadow:0 0 6px rgba(0,0,0,.6);
   margin:0 0 24px;
 }
-.languages-text ul{
-  list-style:none;
-  padding:0; margin:16px 0 0;
-}
+.languages-text ul{ list-style:none; padding:0; margin:16px 0 0; }
 .languages-text li{
-  font-size:1.2rem;
-  line-height:1.8;
-  color:rgba(240,240,240,.95);
-  text-shadow:0 0 6px rgba(0,0,0,.6);
-  margin:0 0 12px;
-  padding-left:20px;
-  border-left:3px solid rgba(79,195,247,.9);
+  font-size:1.2rem; line-height:1.8; margin:0 0 12px;
+  color:rgba(240,240,240,.95); text-shadow:0 0 6px rgba(0,0,0,.6);
+  padding-left:20px; border-left:3px solid rgba(79,195,247,.9);
   transition:transform .3s ease;
 }
-.languages-text li:hover{ transform:translateX(4px); }
+languages-text li:hover{ transform:translateX(4px); }
 
-/* Columna de la figura */
-.lang-figure{
-  flex:0 0 360px;                  /* ancho de la ilustración */
-  max-width:38vw;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,.45));
+/* Figura minimalista */
+.lang-minimal{
+  flex:0 0 420px; max-width:40vw;
+  display:flex; justify-content:center; align-items:center;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,.45));
 }
-.lang-figure svg{ width:100%; height:auto; opacity:.95; }
-.lang-figure .glow{
-  filter: drop-shadow(0 0 6px rgba(0,229,255,.55));
-}
+.lang-minimal svg{ width:100%; height:auto; display:block; opacity:.98; }
 
-/* Ondas animadas sutiles */
-@keyframes pulse{
-  0%,100%{ opacity:.45; transform:translateX(0); }
-  50%{ opacity:.85; transform:translateX(2px); }
+/* Retícula suave */
+.grid{ stroke:rgba(255,255,255,.14); stroke-width:1; fill:none; }
+
+/* Nodos y uniones */
+.node{ fill:var(--orange); }
+.link{ stroke:var(--cian); stroke-width:2.6; fill:none; opacity:.9; }
+
+/* Animación sutil (opcional) */
+@keyframes flow{
+  0%{ stroke-dashoffset:120; opacity:.6; }
+  50%{ stroke-dashoffset:60;  opacity:1; }
+  100%{ stroke-dashoffset:0;  opacity:.6; }
 }
-.lang-figure .wave{ animation:pulse 3.2s ease-in-out infinite; }
+.link.dashed{
+  stroke-dasharray:12 10;
+  animation:flow 6s ease-in-out infinite;
+}
 
 /* Responsive */
 @media (max-width: 900px){
   .languages-layout{ flex-direction:column; }
-  .lang-figure{ order:2; flex:0 0 auto; max-width:100%; }
+  .lang-minimal{ order:2; flex:0 0 auto; max-width:100%; }
 }
 </style>
 </head>
@@ -155,7 +127,7 @@ nav a:hover{
     <div class="languages-text">
       <h1>Languages</h1>
       <p>
-        I communicate fluently in several languages, which has greatly supported my international research collaborations and academic exchanges.
+        Languages connect people and ideas across the globe. Below is a minimalist view of global hubs and their connections.
       </p>
       <ul>
         <li><strong>Spanish:</strong> Native</li>
@@ -165,59 +137,53 @@ nav a:hover{
       </ul>
     </div>
 
-    <!-- Ilustración evocativa de lenguas/comunicación -->
-    <figure class="lang-figure" aria-hidden="true">
-      <svg viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
-        <!-- Halo exterior -->
-        <circle cx="260" cy="260" r="240"
-                fill="none" stroke="rgba(255,255,255,.08)" stroke-width="2"/>
-        <!-- Globo -->
-        <defs>
-          <radialGradient id="g" cx="50%" cy="45%" r="65%">
-            <stop offset="0%"  stop-color="rgba(0,229,255,.25)"/>
-            <stop offset="70%" stop-color="rgba(0,229,255,.08)"/>
-            <stop offset="100%" stop-color="rgba(0,229,255,0)"/>
-          </radialGradient>
-        </defs>
-        <circle cx="260" cy="260" r="200" fill="url(#g)" stroke="rgba(255,255,255,.10)" stroke-width="1.5"/>
+    <!-- === Figura: retícula esférica poco densa + nodos naranjas + uniones celestes === -->
+    <figure class="lang-minimal" aria-label="Minimal spherical grid with language hubs">
+      <svg viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" role="img">
+        <!-- Círculo base -->
+        <circle cx="320" cy="320" r="290" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="2"/>
 
-        <!-- Meridianos y paralelos -->
-        <g stroke="rgba(255,255,255,.18)" stroke-width="1" fill="none">
-          <ellipse cx="260" cy="260" rx="180" ry="70"/>
-          <ellipse cx="260" cy="260" rx="160" ry="55"/>
-          <ellipse cx="260" cy="260" rx="120" ry="35"/>
-          <ellipse cx="260" cy="260" rx="90"  ry="22"/>
-          <ellipse cx="260" cy="260" rx="70"  ry="14"/>
-          <circle  cx="260" cy="260" r="180"/>
-          <circle  cx="260" cy="260" r="140"/>
-          <circle  cx="260" cy="260" r="100"/>
+        <!-- Retícula poco densa (paralelos/meridianos) -->
+        <g class="grid">
+          <!-- paralelos -->
+          <ellipse cx="320" cy="320" rx="260" ry="90"/>
+          <ellipse cx="320" cy="320" rx="200" ry="65"/>
+          <ellipse cx="320" cy="320" rx="140" ry="45"/>
+          <!-- meridianos -->
+          <circle  cx="320" cy="320" r="260"/>
+          <circle  cx="320" cy="320" r="200"/>
+          <circle  cx="320" cy="320" r="140"/>
         </g>
 
-        <!-- Nodos (puntos de idioma) -->
-        <g fill="var(--orange)" class="glow">
-          <circle cx="180" cy="200" r="5"/>
-          <circle cx="320" cy="160" r="5"/>
-          <circle cx="360" cy="280" r="5"/>
-          <circle cx="220" cy="330" r="5"/>
-          <circle cx="120" cy="270" r="5"/>
+        <!-- Nodos (posiciones estilizadas) -->
+        <g>
+          <!-- Américas -->
+          <circle class="node" cx="210" cy="410" r="6"/> <!-- Buenos Aires aprox -->
+          <circle class="node" cx="180" cy="300" r="6"/> <!-- México DF aprox -->
+          <circle class="node" cx="220" cy="260" r="6"/> <!-- NYC/Boston aprox -->
+          <!-- Europa / África N. -->
+          <circle class="node" cx="390" cy="250" r="6"/> <!-- Londres aprox -->
+          <circle class="node" cx="410" cy="270" r="6"/> <!-- París aprox -->
+          <circle class="node" cx="440" cy="260" r="6"/> <!-- Berlín aprox -->
+          <circle class="node" cx="385" cy="295" r="6"/> <!-- Madrid aprox -->
+          <circle class="node" cx="430" cy="330" r="6"/> <!-- Magreb aprox -->
+          <!-- Quebec -->
+          <circle class="node" cx="240" cy="220" r="6"/> <!-- Quebec aprox -->
         </g>
 
-        <!-- Conexiones -->
-        <g stroke="var(--cian)" stroke-opacity=".85" stroke-width="2" fill="none" class="glow">
-          <path d="M180,200 C220,170 300,150 320,160"/>
-          <path d="M320,160 C350,210 360,250 360,280"/>
-          <path d="M180,200 C160,240 140,260 120,270"/>
-          <path d="M120,270 C180,300 200,320 220,330"/>
-          <path d="M220,330 C300,300 340,280 360,280"/>
-        </g>
+        <!-- Uniones (celestes) -->
+        <!-- Español -->
+        <path class="link dashed" d="M210,410 C270,370 340,330 385,295"/> <!-- BA → Madrid -->
+        <path class="link dashed" d="M210,410 C240,360 220,320 180,300"/> <!-- BA → México -->
+        <path class="link dashed" d="M210,410 C230,330 235,260 240,220"/> <!-- BA → Quebec -->
 
-        <!-- Ondas de voz (a la derecha) -->
-        <g transform="translate(400,120)" class="wave">
-          <path d="M0,40  C10,20 20,60 30,40  40,20 50,60 60,40  70,20 80,60 90,40"
-                fill="none" stroke="var(--orange)" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-          <path d="M0,80  C12,60 24,100 36,80  48,60 60,100 72,80 84,60 96,100 108,80"
-                fill="none" stroke="var(--cian)" stroke-width="2" stroke-linecap="round" opacity=".75"/>
-        </g>
+        <!-- Inglés -->
+        <path class="link dashed" d="M220,260 C290,250 350,245 390,250"/> <!-- US → London -->
+        <path class="link dashed" d="M220,260 C310,255 380,252 440,260"/> <!-- US → Berlin -->
+
+        <!-- Francés -->
+        <path class="link dashed" d="M410,270 C360,255 300,238 240,220"/> <!-- Paris → Quebec -->
+        <path class="link dashed" d="M410,270 C415,290 420,310 430,330"/> <!-- Paris → Magreb -->
       </svg>
     </figure>
 
@@ -226,5 +192,3 @@ nav a:hover{
 
 </body>
 </html>
-
-
