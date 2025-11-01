@@ -3,189 +3,238 @@
 <head>
 <meta charset="UTF-8" />
 <title>Private Sector - Nicolás Bodnariuk</title>
+
 <style>
-  body {
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('fondo_2.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: #f2f2f2;
-  }
+/* === Consistency with index/about === */
 
-  nav {
-    background-color: rgba(10, 15, 25, 0.75);
-    padding: 15px 0;
-    text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  }
+/* Background on <html> to avoid white bars */
+html {
+  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
+  scrollbar-gutter: stable both-edges;
+}
+@supports not (scrollbar-gutter: stable) {
+  html { overflow-y: scroll; }
+}
 
-  nav a {
-    color: rgba(230, 230, 230, 0.9);
-    text-decoration: none;
-    margin: 0 20px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
+/* Normalization & no lateral overflow */
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  background: transparent;
+}
 
-  nav a:hover {
-    color: rgba(255, 160, 70, 0.95);
-  }
+/* ===== Navigation bar (identical to about/index) ===== */
+:root { --nav-h: 60px; }
 
-  h1 {
-    text-align: center;
-    margin-top: 60px;
-    color: rgba(255, 160, 70, 0.95);
-    text-shadow: 0 0 14px rgba(255, 160, 70, 0.7);
-    font-size: 2.4rem;
-  }
+nav {
+  height: var(--nav-h);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  background-color: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
 
-  .content {
-    max-width: 900px;
-    margin: 30px auto;
-    background-color: rgba(15, 20, 35, 0.72);
-    backdrop-filter: blur(4px);
-    border-radius: 15px;
-    padding: 32px 50px 40px;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
-  }
+nav a {
+  color: rgba(230, 230, 230, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+  padding-inline: 6px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
 
-  .intro {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: rgba(240, 240, 240, 0.95);
-    text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-    margin-bottom: 28px;
-  }
+nav a:hover {
+  color: #00E5FF;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
 
-  .project-card {
-    background-color: rgba(25, 30, 50, 0.8);
-    border: 1px solid rgba(255, 160, 70, 0.25);
-    border-radius: 12px;
-    padding: 22px 24px;
-    margin-bottom: 28px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
+/* ===== Page heading & container ===== */
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  color: #FFB74D;
+  text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
+  font-size: 2.1rem;
+}
 
-  .project-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-    border-color: rgba(255, 160, 70, 0.35);
-  }
+.header-note {
+  max-width: 1100px;
+  margin: 18px auto 0;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: rgba(240,240,240,0.95);
+}
+.header-note a {
+  color: #00E5FF;
+  text-decoration: none;
+  font-weight: 700;
+}
+.header-note a:hover {
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
 
-  /* Imagen a la derecha */
-  .card-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 22px;
-    align-items: center;
-  }
+/* Main content wrapper (same visual language) */
+.content {
+  max-width: 1100px;
+  margin: 30px auto 60px;
+  background-color: rgba(15, 20, 35, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  padding: 40px 50px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
 
-  .card-figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* Intro text (optional) */
+.intro {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: rgba(240, 240, 240, 0.95);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  margin-bottom: 28px;
+}
 
-  .card-figure img {
-    width: 140px;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 12px;
-    background: rgba(10, 15, 25, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
-  }
+/* ===== Cards ===== */
+.project-card {
+  background-color: rgba(25, 30, 50, 0.8);
+  border: 1px solid rgba(255, 160, 70, 0.25);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
 
-  .card-body h3 {
-    color: rgba(79, 195, 247, 0.95);
-    font-size: 1.3rem;
-    margin: 0 0 8px 0;
-  }
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 160, 70, 0.35);
+}
 
-  .card-body p {
-    font-size: 1.04rem;
-    line-height: 1.6;
-    color: rgba(240, 240, 240, 0.96);
-    margin: 0;
-  }
+/* Image on the right */
+.card-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 22px;
+  align-items: center;
+}
 
-  .card-body ul {
-    margin: 14px 0 0 0;
-    padding-left: 18px;
-  }
+.card-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .card-body li {
-    margin-bottom: 8px;
-  }
+.card-figure img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: rgba(10, 15, 25, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+}
 
-  footer {
-    text-align: center;
-    margin-top: 50px;
-    color: rgba(230, 230, 230, 0.6);
-    font-size: 0.9rem;
-  }
+.card-body h3 {
+  color: rgba(79, 195, 247, 0.95);
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+}
 
-  /* Responsive */
-  @media (max-width: 720px) {
-    .content { padding: 26px 20px 32px; }
-    .card-grid {
-      grid-template-columns: 1fr;
-    }
-    .card-figure {
-      margin-top: 15px;
-    }
-    .card-figure img {
-      width: 130px;
-      height: 130px;
-    }
-  }
+.card-body p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(240, 240, 240, 0.96);
+  margin: 0 0 12px 0;
+}
+
+.card-body ul {
+  margin: 8px 0 0 0;
+  padding-left: 18px;
+}
+
+.card-body li {
+  margin-bottom: 8px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: rgba(230, 230, 230, 0.6);
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 25px; }
+  .content { padding: 28px 22px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .card-figure { margin-top: 12px; }
+  .card-figure img { width: 130px; height: 130px; }
+}
 </style>
 </head>
+
 <body>
 
 <nav>
   <a href="index.html">Home</a>
   <a href="about.html">About Me</a>
-  <a href="analytics.html">Courses in Data Science</a>
-  <a href="analytics.html">Case Studies</a>
   <a href="academia.html">Work in Academia</a>
   <a href="privatesector.html" aria-current="page">Private sector</a>
+  <a href="analytics.html">Applied analytics</a>
   <a href="languages.html">Soft Skills</a>
+  <a href="analytics.html">Courses in Data Science</a>
 </nav>
 
 <h1>Private Sector</h1>
 
+<p class="header-note">
+  Work delivered in support of <a href="https://www.bahitek.com.ar" target="_blank" rel="noopener">Bahitek SRL</a>.
+</p>
+
 <div class="content">
   <p class="intro">
-    Selected work carried out in industrial and consulting contexts, applying mathematical modelling,
-    uncertainty quantification, and environmental analytics to real-world data challenges.
+    Selected industry and consulting work applying mathematical modelling, uncertainty quantification, and environmental analytics to real-world data challenges.
   </p>
 
   <!-- Card 1 -->
   <section class="project-card">
     <div class="card-grid">
       <div class="card-body">
-        <h3>Statistical Analysis for Heat Exchanger Performance</h3>
+        <h3>Monte Carlo Uncertainty Propagation</h3>
         <p>
-          Statistical exploration and regression-based modelling of process data to identify operating regimes
-          optimising heat dissipation and to detect conditions leading to suboptimal performance.
+          Application of Monte Carlo techniques to propagate uncertainty in the knowledge of physical variables such as <em>…</em>, within a circuit at the <em>…</em> plant. The goal was to quantify the joint final uncertainty in the output variables <em>…</em>.
+        </p>
+        <p>
+          For implementation, we worked on the interface between MATLAB and <em>…</em> to automate the generation of individual flow scenarios and end-to-end runs.
         </p>
         <ul>
-          <li>Feature engineering of flow, ΔT, and fouling indicators for predictive analysis.</li>
-          <li>ANOVA and regression techniques to quantify drivers of thermal efficiency.</li>
-          <li>Control charts and change-point detection for early degradation signals.</li>
+          <li>Input distribution elicitation and statistical fitting.</li>
+          <li>Scenario sampling with correlations and reproducible seeds.</li>
+          <li>Sensitivity analysis and uncertainty budgets for risk-informed decisions.</li>
         </ul>
       </div>
       <figure class="card-figure">
-        <img src="logo4.png" alt="Heat exchanger analytics project logo" />
+        <img src="logo5.png" alt="Monte Carlo uncertainty project logo" />
       </figure>
     </div>
   </section>
@@ -194,16 +243,14 @@
   <section class="project-card">
     <div class="card-grid">
       <div class="card-body">
-        <h3>Meteorological Station Analysis for Industry</h3>
+        <h3>Meteorological Data Processing for Flare Dispersion</h3>
         <p>
-          Data curation and quality control of meteorological station records to support flare-based
-          pollutant dispersion modelling. The process delivered validated, bias-checked datasets ready for
-          regulatory-grade simulations.
+          Data cleaning and quality control of meteorological time series, handling missing values and completion strategies to support pollutant dispersion analysis in flares. Work based on SMN meteorological stations and implemented with MATLAB, Python, and Julia. In support of companies <em>XX</em>, <em>XX</em>, and <em>XX</em>.
         </p>
         <ul>
-          <li>Consistency, range, and step-change checks; detection of spikes and flatlines.</li>
-          <li>Generation of wind roses and stability class estimations for model inputs.</li>
-          <li>Audit-traceable ETL pipelines ensuring reproducibility and compliance.</li>
+          <li>Consistency, range, spike, flatline, and step-change checks.</li>
+          <li>Imputation strategies tailored to wind, temperature, and stability metrics.</li>
+          <li>Wind roses and stability class estimation ready for regulatory-grade models.</li>
         </ul>
       </div>
       <figure class="card-figure">
@@ -216,28 +263,24 @@
   <section class="project-card">
     <div class="card-grid">
       <div class="card-body">
-        <h3>Monte Carlo Propagation of Physical Uncertainties</h3>
+        <h3>Statistical Analysis of Operational Data</h3>
         <p>
-          Monte Carlo–based uncertainty propagation applied to industrial circuit models, evaluating how
-          incomplete or uncertain physical inputs affect the final properties of interest.
+          Statistical analyses including percentile calculations (e.g., temperature), event frequency analysis, and correlation tests between variables. Determination of relationships between temperature increases together with high humidity values (latent heat dissipation constraints) and association with preferential wind directions for the Aluar plant (Puerto Madryn).
         </p>
         <ul>
-          <li>Distribution elicitation and statistical fitting for uncertain input parameters.</li>
-          <li>Forward simulations incorporating correlations and scenario sampling.</li>
-          <li>Sensitivity analysis and uncertainty budgets supporting risk-informed design.</li>
+          <li>Percentiles, occurrence frequencies, and correlation significance tests.</li>
+          <li>Joint-condition analysis (temperature × humidity) for thermal stress.</li>
+          <li>Directional analysis linking operational states to prevailing winds.</li>
         </ul>
       </div>
       <figure class="card-figure">
-        <img src="logo5.png" alt="Monte Carlo uncertainty project logo" />
+        <img src="logo4.png" alt="Heat exchanger and statistical analytics logo" />
       </figure>
     </div>
   </section>
 </div>
 
-<footer>
-  © 2025 Nicolás Bodnariuk — All rights reserved.
-</footer>
-
 </body>
 </html>
+
 
