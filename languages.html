@@ -1,268 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Languages - Nicolás Bodnariuk</title>
+<!-- 1) Botón de pestaña (añadir junto a las otras) -->
+<button class="tablink" data-tab="soft-skills" aria-controls="soft-skills" aria-selected="false" role="tab">
+  Soft skills
+</button>
 
-<style>
-/* === Global consistency (no white bars) === */
-html {
-  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
-  scrollbar-gutter: stable both-edges;
-}
-@supports not (scrollbar-gutter: stable) { html { overflow-y: scroll; } }
-*, *::before, *::after { box-sizing: border-box; }
-img, video { max-width: 100%; height: auto; display: block; }
+<!-- 2) Contenido de la pestaña (añadir donde van los paneles) -->
+<section id="soft-skills" class="tabcontent" role="tabpanel" aria-labelledby="soft-skills-tab" hidden>
+  <div class="softskills-wrap">
+    <header>
+      <h2>Soft skills</h2>
+      <p>Competencias transversales clave para un científico de datos orientado a resultados.</p>
+    </header>
 
-body {
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  color: #f2f2f2;
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+    <div class="skills-grid">
+      <article class="skill-card">
+        <h3>🧠 Pensamiento crítico</h3>
+        <p>Formulo preguntas precisas, contrasto hipótesis con datos y diferencio correlación de causalidad.</p>
+        <ul class="skill-bullets">
+          <li>Diseño de experimentos y control de sesgos</li>
+          <li>Validaciones de supuestos (estadísticos y del dominio)</li>
+        </ul>
+      </article>
 
-:root {
-  --nav-h: 60px;
-  --cian: #00E5FF;
-  --orange: #FFB74D;
-  --panel: rgba(15, 20, 35, 0.72);
-  --panel-soft: rgba(15, 20, 35, 0.55);
-  --panel-alt: rgba(12, 26, 36, 0.72);
-  --panel-alt-border: rgba(0, 229, 255, .35);
-}
+      <article class="skill-card">
+        <h3>🔎 Pensamiento analítico</h3>
+        <p>Descompongo problemas complejos en pasos reproducibles, priorizando impacto y viabilidad.</p>
+        <ul class="skill-bullets">
+          <li>EDA rigurosa, selección de variables</li>
+          <li>Métricas definidas desde objetivos de negocio/ciencia</li>
+        </ul>
+      </article>
 
-/* === Navigation bar === */
-nav {
-  height: var(--nav-h);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  width: 100%;
-  background-color: rgba(10, 15, 25, 0.75);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
-}
-nav a {
-  color: rgba(230, 230, 230, .9);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: .4px;
-  padding-inline: 6px;
-  transition: color .3s ease, text-shadow .3s ease;
-}
-nav a:hover { color: var(--cian); text-shadow: 0 0 8px rgba(0,229,255,.8); }
-nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.55); }
+      <article class="skill-card">
+        <h3>🗣️ Capacidad comunicativa &amp; Storytelling</h3>
+        <p>Convierto hallazgos técnicos en narrativas claras para públicos no técnicos.</p>
+        <ul class="skill-bullets">
+          <li>Visualizaciones accionables</li>
+          <li>Mensajes clave, riesgos y próximos pasos</li>
+        </ul>
+      </article>
 
-/* === Main container === */
-.content {
-  max-width: 1100px;
-  margin: 60px auto;
-  padding: 40px 40px 48px;
-  background: var(--panel);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 15px;
-  box-shadow: 0 6px 25px rgba(0,0,0,.45);
-}
+      <article class="skill-card">
+        <h3>🧭 Curiosidad &amp; aprendizaje continuo</h3>
+        <p>Actualización constante en ML/DS, mejores prácticas y herramientas.</p>
+        <ul class="skill-bullets">
+          <li>Lectura técnica y prototipado ágil</li>
+          <li>Evaluación crítica de “state of the art”</li>
+        </ul>
+      </article>
 
-/* Header */
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.header h1 {
-  margin: 0;
-  font-size: 2rem;
-  color: var(--orange);
-  text-shadow: 0 0 12px rgba(255,183,77,.85);
-}
+      <article class="skill-card">
+        <h3>🤝 Trabajo en equipo</h3>
+        <p>Colaboro con ciencia, ingeniería y stakeholders para entregar valor end-to-end.</p>
+        <ul class="skill-bullets">
+          <li>Revisión de código, documentación</li>
+          <li>Planificación y comunicación de dependencias</li>
+        </ul>
+      </article>
+    </div>
 
-/* Intro text */
-.intro {
-  text-align: center;
-  color: rgba(245,245,245,0.92);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 10px auto 40px;
-  max-width: 800px;
-  text-shadow: 0 0 8px rgba(0,0,0,0.6);
-}
+    <hr class="divider"/>
 
-/* Grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
-
-/* Card */
-.card {
-  background: var(--panel-soft);
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 14px;
-  padding: 20px 18px 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.35);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 280px;
-}
-
-/* Language + Level */
-.lang {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 800;
-  letter-spacing: .3px;
-  color: var(--orange);
-  text-shadow: 0 0 10px rgba(255,183,77,.25);
-}
-.level-title {
-  margin: 2px 0 20px;
-  font-size: .95rem;
-  color: #ffffff;
-  opacity: .92;
-  font-weight: 700;
-}
-
-/* Skills list */
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 25px;
-  min-height: 80px;
-}
-.chip {
-  font-size: .85rem;
-  padding: 6px 9px;
-  border-radius: 10px;
-  background: rgba(0,229,255,.10);
-  border: 1px solid rgba(0,229,255,.25);
-  color: #e8fdff;
-}
-.chip--warm {
-  background: rgba(255,183,77,.10);
-  border-color: rgba(255,183,77,.30);
-  color: #fff4e6;
-}
-
-/* Level bars */
-.level {
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.12);
-  overflow: hidden;
-  margin-top: auto;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,.35);
-}
-.level > span {
-  display: block;
-  height: 100%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--cian), #7FF9FF);
-  box-shadow: 0 0 10px rgba(0,229,255,.35);
-  width: 0%;
-}
-.level--es > span { width: 100%; background: linear-gradient(90deg, var(--orange), #FFD180); }
-.level--en > span { width: 95%; }
-.level--fr > span { width: 85%; }
-.level--de > span { width: 50%; }
-
-/* German alternate panel */
-.card--alt {
-  background: var(--panel-alt);
-  border-color: var(--panel-alt-border);
-  box-shadow: 0 6px 18px rgba(0,30,45,.45), inset 0 0 24px rgba(0,229,255,.05);
-}
-.card--alt .chip { background: rgba(0,229,255,.08); border-color: rgba(0,229,255,.22); }
-</style>
-</head>
-
-<body>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About Me</a>
-  <a href="analytics.html">Data Analytics and Modelling</a>
-  <a href="academia.html">Work in Academia</a>
-  <a href="privatesector.html">Private sector</a>
-  <a href="languages.html" aria-current="page">Languages</a>
-</nav>
-
-<section class="content">
-  <header class="header">
-    <h1>Languages</h1>
-  </header>
-
-  <p class="intro">
-Languages supporting my academic and professional work in Argentina and abroad:
-  </p>
-
-  <div class="grid">
-    <!-- Spanish -->
-    <article class="card">
-      <h3 class="lang">Spanish</h3>
-      <div class="level-title">Native</div>
-      <div class="list">
-        <span class="chip chip--warm">academic writing</span>
-        <span class="chip chip--warm">reports</span>
-        <span class="chip chip--warm">conference talks</span>
-        <span class="chip chip--warm">teaching</span>
-        <span class="chip chip--warm">science communication</span>
-      </div>
-      <div class="level level--es" aria-label="Spanish proficiency"><span></span></div>
-    </article>
-
-    <!-- English -->
-    <article class="card">
-      <h3 class="lang">English</h3>
-      <div class="level-title">Advanced (C2)</div>
-      <div class="list">
-        <span class="chip">academic writing</span>
-        <span class="chip">reports</span>
-        <span class="chip">conference talks</span>
-        <span class="chip">teaching</span>
-        <span class="chip">science communication</span>
-      </div>
-      <div class="level level--en" aria-label="English proficiency"><span></span></div>
-    </article>
-
-    <!-- French -->
-    <article class="card">
-      <h3 class="lang">French</h3>
-      <div class="level-title">Advanced (C1)</div>
-      <div class="list">
-        <span class="chip">academic writing</span>
-        <span class="chip">science communication</span>
-        <span class="chip">academic discussions</span>
-      </div>
-      <div class="level level--fr" aria-label="French proficiency"><span></span></div>
-    </article>
-
-    <!-- German -->
-    <article class="card card--alt">
-      <h3 class="lang">German</h3>
-      <div class="level-title">Intermediate (B1)</div>
-      <div class="list">
-        <span class="chip">everyday communication</span>
-        <span class="chip">reading skills</span>
-      </div>
-      <div class="level level--de" aria-label="German proficiency"><span></span></div>
-    </article>
+    <!-- Idiomas: es correcto integrarlos aquí como sub-sección de “Soft skills”,
+         porque refuerzan comunicación y colaboración. -->
+    <section class="languages">
+      <h3>🌍 Idiomas</h3>
+      <ul class="lang-list">
+        <li><span class="lang">Español</span> — <span class="level">Nativo</span></li>
+        <li><span class="lang">Inglés</span> — <span class="level">Avanzado (C1), trabajando acento RP</span></li>
+        <li><span class="lang">Francés</span> — <span class="level">Intermedio (B1–B2)</span></li>
+      </ul>
+      <!-- Si querés ajustar niveles, edita el texto de cada <li>. -->
+    </section>
   </div>
 </section>
 
-</body>
-</html>
+<!-- 3) Estilos mínimos (opcionales si ya tienes un diseño; están “scopeados”) -->
+<style>
+  .tabcontent#soft-skills { padding: 1.25rem; }
+  .softskills-wrap header h2 { margin: 0 0 .25rem; }
+  .softskills-wrap header p { margin: 0 0 1rem; opacity: .8; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 1rem;
+  }
+  .skill-card {
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: .75rem;
+    padding: 1rem;
+    background: #fff;
+  }
+  .skill-card h3 { margin: 0 0 .5rem; }
+  .skill-bullets { margin: .5rem 0 0 1rem; }
+  .divider { margin: 1.25rem 0; border: none; border-top: 1px solid rgba(0,0,0,.08); }
+  .languages h3 { margin-top: 0; }
+  .lang-list { list-style: none; padding: 0; margin: .5rem 0 0; }
+  .lang-list li { margin: .25rem 0; }
+  .lang { font-weight: 600; }
+  .level { opacity: .85; }
+</style>
+
+<!-- 4) JS mínimo para tabs (solo si no tienes uno ya) -->
+<script>
+  (function(){
+    const links = document.querySelectorAll('.tablink');
+    const panels = document.querySelectorAll('.tabcontent');
+    links.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-tab');
+        panels.forEach(p => p.hidden = true);
+        links.forEach(l => l.setAttribute('aria-selected', 'false'));
+        const panel = document.getElementById(id);
+        if (panel) {
+          panel.hidden = false;
+          btn.setAttribute('aria-selected', 'true');
+        }
+      });
+    });
+  })();
+</script>
+
