@@ -1,122 +1,223 @@
-<!-- 1) Botón de pestaña (añadir junto a las otras) -->
-<button class="tablink" data-tab="soft-skills" aria-controls="soft-skills" aria-selected="false" role="tab">
-  Soft skills
-</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Soft Skills - Nicolás Bodnariuk</title>
 
-<!-- 2) Contenido de la pestaña (añadir donde van los paneles) -->
-<section id="soft-skills" class="tabcontent" role="tabpanel" aria-labelledby="soft-skills-tab" hidden>
-  <div class="softskills-wrap">
-    <header>
-      <h2>Soft skills</h2>
-      <p>Competencias transversales clave para un científico de datos orientado a resultados.</p>
-    </header>
+<style>
+/* === Consistency with index.html (copied structure/styles) === */
 
-    <div class="skills-grid">
-      <article class="skill-card">
-        <h3>🧠 Pensamiento crítico</h3>
-        <p>Formulo preguntas precisas, contrasto hipótesis con datos y diferencio correlación de causalidad.</p>
-        <ul class="skill-bullets">
-          <li>Diseño de experimentos y control de sesgos</li>
-          <li>Validaciones de supuestos (estadísticos y del dominio)</li>
-        </ul>
-      </article>
+/* Background applied to <html> to avoid white bars */
+html {
+  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
+  scrollbar-gutter: stable both-edges;
+}
 
-      <article class="skill-card">
-        <h3>🔎 Pensamiento analítico</h3>
-        <p>Descompongo problemas complejos en pasos reproducibles, priorizando impacto y viabilidad.</p>
-        <ul class="skill-bullets">
-          <li>EDA rigurosa, selección de variables</li>
-          <li>Métricas definidas desde objetivos de negocio/ciencia</li>
-        </ul>
-      </article>
+/* Fallback if no scrollbar-gutter */
+@supports not (scrollbar-gutter: stable) {
+  html { overflow-y: scroll; }
+}
 
-      <article class="skill-card">
-        <h3>🗣️ Capacidad comunicativa &amp; Storytelling</h3>
-        <p>Convierto hallazgos técnicos en narrativas claras para públicos no técnicos.</p>
-        <ul class="skill-bullets">
-          <li>Visualizaciones accionables</li>
-          <li>Mensajes clave, riesgos y próximos pasos</li>
-        </ul>
-      </article>
+/* Normalization and lateral overflow prevention */
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
 
-      <article class="skill-card">
-        <h3>🧭 Curiosidad &amp; aprendizaje continuo</h3>
-        <p>Actualización constante en ML/DS, mejores prácticas y herramientas.</p>
-        <ul class="skill-bullets">
-          <li>Lectura técnica y prototipado ágil</li>
-          <li>Evaluación crítica de “state of the art”</li>
-        </ul>
-      </article>
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  background: transparent; /* background handled by <html> */
+}
 
-      <article class="skill-card">
-        <h3>🤝 Trabajo en equipo</h3>
-        <p>Colaboro con ciencia, ingeniería y stakeholders para entregar valor end-to-end.</p>
-        <ul class="skill-bullets">
-          <li>Revisión de código, documentación</li>
-          <li>Planificación y comunicación de dependencias</li>
-        </ul>
-      </article>
+/* ===== Navigation bar (identical to index) ===== */
+:root { --nav-h: 60px; }
+
+nav {
+  height: var(--nav-h);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  background-color: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+nav a {
+  color: rgba(230, 230, 230, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+  padding-inline: 6px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a[aria-current="page"] {
+  color: #00E5FF;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
+
+nav a:hover {
+  color: #00E5FF;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
+
+/* ===== Content ===== */
+.content {
+  display: flex;
+  max-width: 1100px;
+  margin: 60px auto;
+  gap: 30px;
+  align-items: flex-start;
+  background-color: rgba(15, 20, 35, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Text column */
+.text-with-video { flex: 1; }
+.text-with-video h1 {
+  color: #FFB74D;
+  text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.text-with-video p,
+.text-with-video li,
+.text-with-video h2,
+.text-with-video h3 {
+  color: rgba(240, 240, 240, 0.95);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+.text-with-video ul {
+  margin: 0 0 1rem 1.25rem;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Media column (logo + CV) */
+.media-column {
+  flex-shrink: 0;
+  width: 480px;
+  max-width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Visual frame (reuses video-container style) */
+.media-box {
+  border: 2px solid #00E5FF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.logo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== CV link with arrow → before text ===== */
+.cv-link {
+  font-size: 1.2rem;
+  color: #FFB74D;
+  font-weight: 600;
+  text-decoration: none;
+  align-self: center;
+  margin-top: 1.5cm;
+  position: relative;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.cv-link::before {
+  content: "→";
+  margin-right: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.cv-link:hover {
+  color: #FFD180;
+  text-shadow: 0 0 10px rgba(255, 183, 77, 0.8);
+  transform: translateX(2px);
+}
+.cv-link:hover::before {
+  transform: translateX(3px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 25px; }
+  .content { flex-direction: column; text-align: center; }
+  .media-column { width: 100%; max-width: 100%; }
+  .cv-link { margin-top: 1.5cm; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Me</a>
+  <a href="analytics.html">Data Analytics and Modelling</a>
+  <a href="academia.html">Work in Academia</a>
+  <a href="privatesector.html">Private sector</a>
+  <a href="softskills.html" aria-current="page">Soft Skills</a>
+  <a href="languages.html">Languages</a>
+</nav>
+
+<div class="content">
+  <!-- Text -->
+  <div class="text-with-video">
+    <h1>Soft Skills</h1>
+
+    <p>
+      Core interpersonal and cognitive abilities that strengthen scientific analysis, cross-functional collaboration, and data-driven decision-making.
+    </p>
+
+    <h2>Core competencies</h2>
+    <ul>
+      <li><strong>Critical thinking</strong> — precise questioning, hypothesis testing against data, and distinction between correlation and causation; bias identification and assumption checks.</li>
+      <li><strong>Analytical thinking</strong> — decomposition of complex problems into reproducible steps, rigorous EDA, feature selection, and metric design aligned with scientific or business goals.</li>
+      <li><strong>Communication & storytelling</strong> — clear narratives for non-technical audiences, actionable visualizations, concise reporting of insights, risks, and next steps.</li>
+      <li><strong>Curiosity & continuous learning</strong> — ongoing exploration of methods and tools (ML/DS best practices), rapid prototyping, and critical appraisal of state-of-the-art.</li>
+      <li><strong>Teamwork</strong> — collaboration across science, engineering, and stakeholders; code review, documentation, shared standards, and transparent coordination.</li>
+    </ul>
+
+    <h3>Languages</h3>
+    <ul>
+      <li><strong>Spanish</strong> — Native</li>
+      <li><strong>English</strong> — Advanced (C1), working on RP accent</li>
+      <li><strong>French</strong> — Intermediate (B1–B2)</li>
+    </ul>
+  </div>
+
+  <!-- Logo + CV -->
+  <div class="media-column">
+    <div class="media-box">
+      <img src="logo.png" alt="Logo" class="logo">
     </div>
 
-    <hr class="divider"/>
-
-    <!-- Idiomas: es correcto integrarlos aquí como sub-sección de “Soft skills”,
-         porque refuerzan comunicación y colaboración. -->
-    <section class="languages">
-      <h3>🌍 Idiomas</h3>
-      <ul class="lang-list">
-        <li><span class="lang">Español</span> — <span class="level">Nativo</span></li>
-        <li><span class="lang">Inglés</span> — <span class="level">Avanzado (C1), trabajando acento RP</span></li>
-        <li><span class="lang">Francés</span> — <span class="level">Intermedio (B1–B2)</span></li>
-      </ul>
-      <!-- Si querés ajustar niveles, edita el texto de cada <li>. -->
-    </section>
+    <a href="CV.pdf" class="cv-link">Curriculum Vitae</a>
   </div>
-</section>
+</div>
 
-<!-- 3) Estilos mínimos (opcionales si ya tienes un diseño; están “scopeados”) -->
-<style>
-  .tabcontent#soft-skills { padding: 1.25rem; }
-  .softskills-wrap header h2 { margin: 0 0 .25rem; }
-  .softskills-wrap header p { margin: 0 0 1rem; opacity: .8; }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-    gap: 1rem;
-  }
-  .skill-card {
-    border: 1px solid rgba(0,0,0,.1);
-    border-radius: .75rem;
-    padding: 1rem;
-    background: #fff;
-  }
-  .skill-card h3 { margin: 0 0 .5rem; }
-  .skill-bullets { margin: .5rem 0 0 1rem; }
-  .divider { margin: 1.25rem 0; border: none; border-top: 1px solid rgba(0,0,0,.08); }
-  .languages h3 { margin-top: 0; }
-  .lang-list { list-style: none; padding: 0; margin: .5rem 0 0; }
-  .lang-list li { margin: .25rem 0; }
-  .lang { font-weight: 600; }
-  .level { opacity: .85; }
-</style>
-
-<!-- 4) JS mínimo para tabs (solo si no tienes uno ya) -->
-<script>
-  (function(){
-    const links = document.querySelectorAll('.tablink');
-    const panels = document.querySelectorAll('.tabcontent');
-    links.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-tab');
-        panels.forEach(p => p.hidden = true);
-        links.forEach(l => l.setAttribute('aria-selected', 'false'));
-        const panel = document.getElementById(id);
-        if (panel) {
-          panel.hidden = false;
-          btn.setAttribute('aria-selected', 'true');
-        }
-      });
-    });
-  })();
-</script>
+</body>
+</html>
 
