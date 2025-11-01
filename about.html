@@ -6,18 +6,13 @@
 
 <style>
 /* === Consistencia total con index.html === */
-
-/* Fondo aplicado al <html> para evitar barras blancas */
 html {
   background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
   scrollbar-gutter: stable both-edges;
 }
-
 @supports not (scrollbar-gutter: stable) {
   html { overflow-y: scroll; }
 }
-
-/* Normalización y prevención de overflow lateral */
 *, *::before, *::after { box-sizing: border-box; }
 img { max-width: 100%; height: auto; display: block; }
 
@@ -32,7 +27,7 @@ body {
   background: transparent;
 }
 
-/* ===== Barra de navegación (idéntica a index) ===== */
+/* ===== Barra de navegación ===== */
 :root { --nav-h: 60px; }
 
 nav {
@@ -73,7 +68,7 @@ nav a:hover {
   justify-content: space-between;
   max-width: 1100px;
   margin: 60px auto;
-  gap: 50px; /* espacio armónico */
+  gap: 50px;
   background-color: rgba(15, 20, 35, 0.72);
   backdrop-filter: blur(4px);
   border-radius: 15px;
@@ -98,6 +93,20 @@ nav a:hover {
   line-height: 1.65;
   color: rgba(240, 240, 240, 0.95);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  text-align: justify;
+}
+
+/* Enlaces en naranja */
+.text-with-video a {
+  color: #FFB74D;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.text-with-video a:hover {
+  color: #FFD180;
+  text-shadow: 0 0 8px rgba(255, 183, 77, 0.7);
+  text-decoration: underline;
 }
 
 /* Columna del logo + CV (1/3 del ancho) */
@@ -126,9 +135,9 @@ nav a:hover {
   display: block;
 }
 
-/* ===== Link al CV con flecha → antes del texto ===== */
+/* Link al CV */
 .cv-link {
-  font-size: 1.5rem; /* aumentado */
+  font-size: 1.5rem;
   color: #FFB74D;
   font-weight: 700;
   text-decoration: none;
@@ -168,11 +177,11 @@ nav a:hover {
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="about.html">About Me</a>
+  <a href="about.html" aria-current="page">About Me</a>
   <a href="academia.html">Work in Academia</a>
   <a href="privatesector.html">Private sector</a>
   <a href="analytics.html">Applied analytics</a>
-  <a href="languages.html" aria-current="page">Soft Skills</a>
+  <a href="languages.html">Soft Skills</a>
   <a href="analytics.html">Courses in Data Science</a>
 </nav>
   
@@ -180,14 +189,29 @@ nav a:hover {
   <!-- Texto -->
   <div class="text-with-video">
     <h1>About Me</h1>
+
     <p>
-      I earned my undergraduate degree in Physical Oceanography from the <strong>Universidad Nacional del Sur</strong> (Argentina, 2015) and completed my PhD in Ocean and Atmospheric Sciences at the <strong>Universidad de Buenos Aires</strong> (2023), supported by a <strong>CONICET</strong> fellowship.
+      I earned my undergraduate degree in Physical Oceanography from the 
+      <a href="https://www.uns.edu.ar" target="_blank" rel="noopener">Universidad Nacional del Sur</a> (Argentina, 2015) 
+      and completed my PhD in Ocean and Atmospheric Sciences at the 
+      <a href="https://www.uba.ar" target="_blank" rel="noopener">Universidad de Buenos Aires</a> (2023), supported by a 
+      <a href="https://www.cima.fcen.uba.ar" target="_blank" rel="noopener">CIMA</a> fellowship.
     </p>
+
     <p>
-      I later carried out postdoctoral research at both the <strong>CIMA</strong> (Centro de Investigación del Mar y la Atmósfera, Buenos Aires) and the <strong>LMD</strong> (Laboratoire de Météorologie Dynamique, <strong>CNRS</strong>, Paris, France). My academic work has focused on the analysis of large geophysical datasets — often spanning terabytes — integrating concepts from dynamical systems theory, topology, and statistics.
+      I later carried out postdoctoral research at both the 
+      <a href="https://www.cima.fcen.uba.ar" target="_blank" rel="noopener">CIMA</a> 
+      (Centro de Investigación del Mar y la Atmósfera, Buenos Aires) and the 
+      <a href="https://www.lmd.ipsl.fr" target="_blank" rel="noopener">LMD</a> 
+      (Laboratoire de Météorologie Dynamique, 
+      <a href="https://www.lmd.ipsl.fr" target="_blank" rel="noopener">CNRS</a>, Paris, France). 
+      My academic work has focused on the analysis of large geophysical datasets (spanning terabytes) 
+      integrating concepts from dynamical systems theory, topology, and statistics.
     </p>
+
     <p>
-      In addition to my scientific background, I have professional experience in the private sector, where I worked with meteorological databases and Monte Carlo simulations.
+      In addition to my scientific background, I have professional experience in the private sector, 
+      where I worked with meteorological databases and Monte Carlo simulations.
     </p>
   </div>
 
@@ -202,5 +226,3 @@ nav a:hover {
 
 </body>
 </html>
-
-
