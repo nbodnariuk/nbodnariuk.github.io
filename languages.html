@@ -5,20 +5,12 @@
 <title>Soft Skills - Nicolás Bodnariuk</title>
 
 <style>
-/* === Consistency with index.html (copied structure/styles) === */
-
-/* Background applied to <html> to avoid white bars */
+/* === Consistencia total con las otras pestañas === */
 html {
   background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
   scrollbar-gutter: stable both-edges;
 }
-
-/* Fallback if no scrollbar-gutter */
-@supports not (scrollbar-gutter: stable) {
-  html { overflow-y: scroll; }
-}
-
-/* Normalization and lateral overflow prevention */
+@supports not (scrollbar-gutter: stable) { html { overflow-y: scroll; } }
 *, *::before, *::after { box-sizing: border-box; }
 img { max-width: 100%; height: auto; display: block; }
 
@@ -30,10 +22,10 @@ body {
   overflow-x: hidden;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   color: #f2f2f2;
-  background: transparent; /* background handled by <html> */
+  background: transparent;
 }
 
-/* ===== Navigation bar (identical to index) ===== */
+/* ===== Barra de navegación (idéntica) ===== */
 :root { --nav-h: 60px; }
 
 nav {
@@ -44,178 +36,4 @@ nav {
   gap: 50px;
   width: 100%;
   background-color: rgba(10, 15, 25, 0.75);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-nav a {
-  color: rgba(230, 230, 230, 0.9);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: 0.4px;
-  padding-inline: 6px;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-nav a[aria-current="page"] {
-  color: #00E5FF;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
-}
-
-nav a:hover {
-  color: #00E5FF;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
-}
-
-/* ===== Content ===== */
-.content {
-  display: flex;
-  max-width: 1100px;
-  margin: 60px auto;
-  gap: 30px;
-  align-items: flex-start;
-  background-color: rgba(15, 20, 35, 0.72);
-  backdrop-filter: blur(4px);
-  border-radius: 15px;
-  padding: 40px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* Text column */
-.text-with-video { flex: 1; }
-.text-with-video h1 {
-  color: #FFB74D;
-  text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-.text-with-video p,
-.text-with-video li,
-.text-with-video h2,
-.text-with-video h3 {
-  color: rgba(240, 240, 240, 0.95);
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-}
-.text-with-video ul {
-  margin: 0 0 1rem 1.25rem;
-  padding: 0;
-  line-height: 1.6;
-}
-
-/* Media column (logo + CV) */
-.media-column {
-  flex-shrink: 0;
-  width: 480px;
-  max-width: 40vw;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-/* Visual frame (reuses video-container style) */
-.media-box {
-  border: 2px solid #00E5FF;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-/* Logo */
-.logo {
-  width: 70%;
-  height: auto;
-  display: block;
-}
-
-/* ===== CV link with arrow → before text ===== */
-.cv-link {
-  font-size: 1.2rem;
-  color: #FFB74D;
-  font-weight: 600;
-  text-decoration: none;
-  align-self: center;
-  margin-top: 1.5cm;
-  position: relative;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-.cv-link::before {
-  content: "→";
-  margin-right: 10px;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-.cv-link:hover {
-  color: #FFD180;
-  text-shadow: 0 0 10px rgba(255, 183, 77, 0.8);
-  transform: translateX(2px);
-}
-.cv-link:hover::before {
-  transform: translateX(3px);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-  nav { flex-wrap: wrap; gap: 25px; }
-  .content { flex-direction: column; text-align: center; }
-  .media-column { width: 100%; max-width: 100%; }
-  .cv-link { margin-top: 1.5cm; }
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About Me</a>
-  <a href="analytics.html">Courses in Data Science</a>
-  <a href="analytics.html">Case Studies</a>
-  <a href="academia.html">Work in Academia</a>
-  <a href="privatesector.html">Private sector</a>
-  <a href="languages.html" aria-current="page">Soft Skills</a>
-</nav>
-
-
-<div class="content">
-  <!-- Text -->
-  <div class="text-with-video">
-    <h1>Soft Skills</h1>
-
-    <ul>
-      <li><strong>Critical thinking</strong> — hypothesis testing against data, and distinction between correlation and causation.</li>
-      <li><strong>Analytical thinking</strong> — decomposition of complex problems into smaller steps.</li>
-      <li><strong>Communication & storytelling</strong> — clear narratives for non-technical audiences, actionable visualizations, and concise reporting of insights.</li>
-      <li><strong>Curiosity & continuous learning</strong> — ongoing exploration of methods and tools </li>
-      <li><strong>Teamwork</strong> — collaboration in groups </li>
-    </ul>
-
-    <h3>Languages</h3>
-    <ul>
-      <li><strong>Spanish</strong> — Native</li>
-      <li><strong>English</strong> — Advanced (C2) </li>
-      <li><strong>French</strong> — Advanced (C1)</li>
-      <li><strong>German</strong> — Intermediate (B1)</li>
-
-      
-    </ul>
-  </div>
-
-  <!-- Logo + CV -->
-  <div class="media-column">
-    <div class="media-box">
-      <img src="logo2.png" alt="Logo" class="logo">
-    </div>
-
-  </div>
-</div>
-
-</body>
-</html>
-
+  backdrop-filter: blur(6px
