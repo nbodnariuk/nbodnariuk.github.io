@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Private Sector - Nicolás Bodnariuk</title>
+<style>
+  body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('fondo_2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #f2f2f2;
+  }
+
+  nav {
+    background-color: rgba(10, 15, 25, 0.75);
+    padding: 15px 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  nav a {
+    color: rgba(230, 230, 230, 0.9);
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: rgba(255, 160, 70, 0.95);
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 60px;
+    color: rgba(255, 160, 70, 0.95);
+    text-shadow: 0 0 14px rgba(255, 160, 70, 0.7);
+    font-size: 2.4rem;
+  }
+
+  .content {
+    max-width: 900px;
+    margin: 60px auto;
+    background-color: rgba(15, 20, 35, 0.72);
+    backdrop-filter: blur(4px);
+    border-radius: 15px;
+    padding: 40px 50px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  }
+
+  .content h2 {
+    color: rgba(255, 160, 70, 0.95);
+    text-shadow: 0 0 10px rgba(255, 160, 70, 0.6);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(240, 240, 240, 0.95);
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  }
+
+  .project {
+    margin-bottom: 45px;
+    padding-left: 20px;
+    border-left: 3px solid rgba(255, 160, 70, 0.8);
+  }
+
+  .project h3 {
+    color: rgba(79, 195, 247, 0.95);
+    margin-top: 0;
+  }
+
+  .project ul {
+    margin-top: 10px;
+    padding-left: 18px;
+  }
+
+  .project li {
+    margin-bottom: 8px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    color: rgba(230, 230, 230, 0.6);
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Me</a>
+  <a href="analytics.html">Courses in Data Science</a>
+  <a href="analytics.html">Case Studies</a>
+  <a href="academia.html">Work in Academia</a>
+  <a href="privatesector.html" aria-current="page">Private sector</a>
+  <a href="languages.html">Soft Skills</a>
+</nav>
+
+<h1>Private Sector</h1>
+
+<div class="content">
+  <p>
+    Selected work carried out in industrial and consulting contexts, applying mathematical modelling, uncertainty quantification, and environmental analytics to real-world data challenges.
+  </p>
+
+  <div class="project">
+    <h3>Meteorological Station Analysis for Industry</h3>
+    <p>
+      Data curation and quality control of meteorological station records to support flare-based pollutant dispersion modelling. The process delivered validated, bias-checked datasets ready for regulatory-grade simulations.
+    </p>
+    <ul>
+      <li>Consistency, range, and step-change checks; detection of spikes and flatlines.</li>
+      <li>Generation of wind roses and stability class estimations for model inputs.</li>
+      <li>Audit-traceable ETL pipelines ensuring reproducibility and compliance.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>Statistical Analysis for Heat Exchanger Performance</h3>
+    <p>
+      Statistical exploration and regression-based modelling of process data to identify operating regimes optimising heat dissipation and to detect conditions leading to suboptimal performance.
+    </p>
+    <ul>
+      <li>Feature engineering of flow, ΔT, and fouling indicators for predictive analysis.</li>
+      <li>ANOVA and regression techniques to quantify drivers of thermal efficiency.</li>
+      <li>Control charts and change-point detection for early degradation signals.</li>
+    </ul>
+  </div>
+
+  <div class="project">
+    <h3>Monte Carlo Propagation of Physical Uncertainties</h3>
+    <p>
+      Monte Carlo–based uncertainty propagation applied to industrial circuit models, evaluating how incomplete or uncertain physical inputs affect the final properties of interest.
+    </p>
+    <ul>
+      <li>Distribution elicitation and statistical fitting for uncertain input parameters.</li>
+      <li>Forward simulations incorporating correlations and scenario sampling.</li>
+      <li>Sensitivity analysis and uncertainty budgets supporting risk-informed design.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  © 2025 Nicolás Bodnariuk — All rights reserved.
+</footer>
+
+</body>
+</html>
