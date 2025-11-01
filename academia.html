@@ -5,21 +5,27 @@
 <title>Work in Academia - Nicolás Bodnariuk</title>
 
 <style>
-/* === Global consistency === */
+/* === Consistency with the other tabs (index/about/privatesector) === */
+
+/* Background on <html> to avoid white bars */
 html {
   background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
   scrollbar-gutter: stable both-edges;
 }
 @supports not (scrollbar-gutter: stable) { html { overflow-y: scroll; } }
+
+/* Normalization & no lateral overflow */
 *, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+html, body { height: 100%; }
 body {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: transparent;
-  color: #f2f2f2;
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  min-height: 100vh;
   overflow-x: hidden;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  background: transparent;
 }
 
 :root {
@@ -29,7 +35,7 @@ body {
   --panel: rgba(15, 20, 35, 0.72);
 }
 
-/* === Navigation bar === */
+/* ===== Navigation bar (identical style) ===== */
 nav {
   height: var(--nav-h);
   display: flex;
@@ -57,11 +63,20 @@ nav a {
 nav a:hover { color: var(--cian); text-shadow: 0 0 8px rgba(0,229,255,.8); }
 nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.55); }
 
-/* === Content container === */
+/* ===== Page title ===== */
+h1 {
+  text-align: center;
+  color: var(--orange);
+  text-shadow: 0 0 12px rgba(255,183,77,.85);
+  margin: 40px 0 10px;
+  font-size: 2.1rem;
+}
+
+/* ===== Main content wrapper ===== */
 .content {
   max-width: 1100px;
-  margin: 60px auto;
-  padding: 40px 40px 48px;
+  margin: 20px auto 60px;
+  padding: 40px 50px;
   background: var(--panel);
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255,255,255,.15);
@@ -69,38 +84,51 @@ nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.5
   box-shadow: 0 6px 25px rgba(0,0,0,.45);
 }
 
-h1 {
-  text-align: center;
-  color: var(--orange);
-  text-shadow: 0 0 12px rgba(255,183,77,.85);
-  margin-bottom: 18px;
-}
-
+/* Intro: JUSTIFIED (not centered) */
 .intro {
-  text-align: center;
-  font-size: 1.1rem;
-  color: rgba(240,240,240,0.93);
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: rgba(240,240,240,0.95);
   text-shadow: 0 0 6px rgba(0,0,0,0.6);
-  max-width: 900px;
-  margin: 0 auto 35px;
-  line-height: 1.6;
+  margin: 0 0 28px 0;
+  text-align: justify;
 }
 
-h2 {
+/* ===== Subsection cards inside the main panel ===== */
+.subcard {
+  background-color: rgba(25, 30, 50, 0.8);
+  border: 1px solid rgba(255, 160, 70, 0.25);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.subcard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 160, 70, 0.35);
+}
+
+.subcard h2 {
+  margin: 0 0 14px 0;
   color: var(--cian);
+  font-size: 1.35rem;
   text-shadow: 0 0 8px rgba(0,229,255,.35);
   border-bottom: 1px solid rgba(255,255,255,.15);
   padding-bottom: 6px;
-  margin-top: 40px;
 }
 
+/* ===== Items ===== */
 .publication-item {
-  margin-bottom: 22px;
+  margin-bottom: 16px;
   font-size: 1.05rem;
   line-height: 1.6;
-  color: rgba(240,240,240,0.95);
+  color: rgba(240,240,240,0.96);
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  text-align: justify;
 }
+.publication-item:last-child { margin-bottom: 0; }
 
 .publication-item em {
   color: #e6f7ff;
@@ -114,8 +142,12 @@ h2 {
   font-size: 0.95rem;
   word-break: break-all;
 }
-.publication-item a:hover {
-  text-decoration: underline;
+.publication-item a:hover { text-decoration: underline; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 25px; }
+  .content { padding: 28px 22px; }
 }
 </style>
 </head>
@@ -125,118 +157,129 @@ h2 {
 <nav>
   <a href="index.html">Home</a>
   <a href="about.html">About Me</a>
-  <a href="analytics.html">Data Analytics and Modelling</a>
-  <a href="academia.html">Work in Academia</a>
+  <a href="academia.html" aria-current="page">Work in Academia</a>
   <a href="privatesector.html">Private sector</a>
-  <a href="languages.html" aria-current="page">Languages</a>
+  <a href="analytics.html">Applied analytics</a>
+  <a href="languages.html">Soft Skills</a>
+  <a href="analytics.html">Courses in Data Science</a>
 </nav>
 
+<h1>Work in Academia</h1>
+
 <div class="content">
-  <h1>Work in Academia</h1>
   <p class="intro">
-    Peer-reviewed and forthcoming works reflecting my research on ocean-atmosphere dynamics:
+    Peer-reviewed and forthcoming works reflecting my research on ocean–atmosphere dynamics:
   </p>
 
-  <h2>Peer-Reviewed Publications</h2>
+  <!-- Subsection 1 -->
+  <section class="subcard">
+    <h2>Peer-Reviewed Publications</h2>
 
-  <div class="publication-item">
-    Bonel, J.C., <strong>Bodnariuk, N.</strong>, Charo, G.D., Letellier, C., Saraceno, M. and Sciamarella, D., 2025.
-    Templex for Lagrangian dynamics in the Southwestern Atlantic.
-    <em>Chaos: An Interdisciplinary Journal of Nonlinear Science</em>
-    <a href="https://doi.org/10.1063/5.0255611">https://doi.org/10.1063/5.0255611</a>
-    
-  </div>
-  
-  <div class="publication-item">
-    Torres Alberto, M.L., <strong>Bodnariuk, N.</strong>, Saraceno, M. and Acha, M.A., 2025.
-    Subantarctic front variability: a potential driver of Patagonian scallop (Zygochlamys patagonica) recruitment fluctuations.
-    <em>Marine Ecology Progress Series</em>, 762, pp.51–63.
-    <a href="https://doi.org/10.3354/meps14856">https://doi.org/10.3354/meps14856</a>
-  </div>
+    <div class="publication-item">
+      Bonel, J.C., <strong>Bodnariuk, N.</strong>, Charo, G.D., Letellier, C., Saraceno, M. and Sciamarella, D., 2025.
+      Templex for Lagrangian dynamics in the Southwestern Atlantic.
+      <em>Chaos: An Interdisciplinary Journal of Nonlinear Science</em>
+      <a href="https://doi.org/10.1063/5.0255611">https://doi.org/10.1063/5.0255611</a>
+    </div>
 
-  <div class="publication-item">
-    Alonso, G., Simionato, C., Dinápoli, M., Saurral, R. and <strong>Bodnariuk, N.</strong>, 2024.
-    Positive storm surges in the Río de la Plata Estuary: forcings, long-term variability, trends and linkage with Southwestern Atlantic Continental Shelf dynamics.
-    <em>Natural Hazards</em>, 120, pp.5007–5032.
-    <a href="https://doi.org/10.1007/s11069-024-06402-w">https://doi.org/10.1007/s11069-024-06402-w</a>
-  </div>
+    <div class="publication-item">
+      Torres Alberto, M.L., <strong>Bodnariuk, N.</strong>, Saraceno, M. and Acha, M.A., 2025.
+      Subantarctic front variability: a potential driver of Patagonian scallop (Zygochlamys patagonica) recruitment fluctuations.
+      <em>Marine Ecology Progress Series</em>, 762, pp.51–63.
+      <a href="https://doi.org/10.3354/meps14856">https://doi.org/10.3354/meps14856</a>
+    </div>
 
-  <div class="publication-item">
-    Dinápoli, M.G., Simionato, C.G., Alonso, G., <strong>Bodnariuk, N.</strong> and Saurral, R., 2024.
-    Negative storm surges in the Río de la Plata Estuary: mechanisms, variability, trends and linkage with the Continental Shelf dynamics.
-    <em>Estuarine, Coastal and Shelf Science</em>, 305, 108844.
-    <a href="https://doi.org/10.1016/j.ecss.2024.108844">https://doi.org/10.1016/j.ecss.2024.108844</a>
-  </div>
+    <div class="publication-item">
+      Alonso, G., Simionato, C., Dinápoli, M., Saurral, R. and <strong>Bodnariuk, N.</strong>, 2024.
+      Positive storm surges in the Río de la Plata Estuary: forcings, long-term variability, trends and linkage with Southwestern Atlantic Continental Shelf dynamics.
+      <em>Natural Hazards</em>, 120, pp.5007–5032.
+      <a href="https://doi.org/10.1007/s11069-024-06402-w">https://doi.org/10.1007/s11069-024-06402-w</a>
+    </div>
 
-  <div class="publication-item">
-    Saraceno, M., <strong>Bodnariuk, N.</strong>, Ruiz-Etcheverry, L.A., Berta, M., Simionato, C.G., Beron-Vera, F.J. and Olascoaga, M.J., 2024.
-    Lagrangian characterization of the southwestern Atlantic from a dense surface drifter deployment.
-    <em>Deep Sea Research Part I</em>, 208, 104319.
-    <a href="https://doi.org/10.1016/j.dsr.2024.104319">https://doi.org/10.1016/j.dsr.2024.104319</a>
-  </div>
+    <div class="publication-item">
+      Dinápoli, M.G., Simionato, C.G., Alonso, G., <strong>Bodnariuk, N.</strong> and Saurral, R., 2024.
+      Negative storm surges in the Río de la Plata Estuary: mechanisms, variability, trends and linkage with the Continental Shelf dynamics.
+      <em>Estuarine, Coastal and Shelf Science</em>, 305, 108844.
+      <a href="https://doi.org/10.1016/j.ecss.2024.108844">https://doi.org/10.1016/j.ecss.2024.108844</a>
+    </div>
 
-  <div class="publication-item">
-    <strong>Bodnariuk, N.</strong>, Saraceno, M., Ruiz-Etcheverry, L.A., Simionato, C., Andrade-Canto, F., Beron-Vera, F.J. and Olascoaga, M.J., 2024.
-    Multiple Lagrangian jet-core structures in the Malvinas Current.
-    <em>Journal of Geophysical Research: Oceans</em>, 129, e2023JC020446.
-    <a href="https://doi.org/10.1029/2023JC020446">https://doi.org/10.1029/2023JC020446</a>
-  </div>
+    <div class="publication-item">
+      Saraceno, M., <strong>Bodnariuk, N.</strong>, Ruiz-Etcheverry, L.A., Berta, M., Simionato, C.G., Beron-Vera, F.J. and Olascoaga, M.J., 2024.
+      Lagrangian characterization of the southwestern Atlantic from a dense surface drifter deployment.
+      <em>Deep Sea Research Part I</em>, 208, 104319.
+      <a href="https://doi.org/10.1016/j.dsr.2024.104319">https://doi.org/10.1016/j.dsr.2024.104319</a>
+    </div>
 
-  <div class="publication-item">
-    <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2022.
-    Water exchanges between the Northern Argentinean Shelf and the open ocean on interannual timescales: remote influences.
-    <em>Journal of Geophysical Research: Oceans</em>, 127, e2022JC018517.
-    <a href="https://doi.org/10.1029/2022JC018517">https://doi.org/10.1029/2022JC018517</a>
-  </div>
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Saraceno, M., Ruiz-Etcheverry, L.A., Simionato, C., Andrade-Canto, F., Beron-Vera, F.J. and Olascoaga, M.J., 2024.
+      Multiple Lagrangian jet-core structures in the Malvinas Current.
+      <em>Journal of Geophysical Research: Oceans</em>, 129, e2023JC020446.
+      <a href="https://doi.org/10.1029/2023JC020446">https://doi.org/10.1029/2023JC020446</a>
+    </div>
 
-  <div class="publication-item">
-    <strong>Bodnariuk, N.</strong>, Simionato, C.G., Osman, M. and Saraceno, M., 2021.
-    Interannual variability of the latitude of separation of the Brazil Current: Teleconnections and oceanic Rossby waves propagation.
-    <em>Journal of Geophysical Research: Oceans</em>, 126, e2021JC017557.
-    <a href="https://doi.org/10.1029/2021JC017557">https://doi.org/10.1029/2021JC017557</a>
-  </div>
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2022.
+      Water exchanges between the Northern Argentinean Shelf and the open ocean on interannual timescales: remote influences.
+      <em>Journal of Geophysical Research: Oceans</em>, 127, e2022JC018517.
+      <a href="https://doi.org/10.1029/2022JC018517">https://doi.org/10.1029/2022JC018517</a>
+    </div>
 
-  <div class="publication-item">
-    <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2021.
-    The Río de la Plata plume dynamics over the Southwestern Atlantic Continental Shelf and its link with the large scale atmospheric variability on interannual timescales.
-    <em>Continental Shelf Research</em>, 212, 104296.
-    <a href="https://doi.org/10.1016/j.csr.2020.104296">https://doi.org/10.1016/j.csr.2020.104296</a>
-  </div>
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Simionato, C.G., Osman, M. and Saraceno, M., 2021.
+      Interannual variability of the latitude of separation of the Brazil Current: Teleconnections and oceanic Rossby waves propagation.
+      <em>Journal of Geophysical Research: Oceans</em>, 126, e2021JC017557.
+      <a href="https://doi.org/10.1029/2021JC017557">https://doi.org/10.1029/2021JC017557</a>
+    </div>
 
-  <div class="publication-item">
-    <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2021.
-    SAM-driven variability of the southwestern Atlantic shelf sea circulation.
-    <em>Continental Shelf Research</em>, 212, 104313.
-    <a href="https://doi.org/10.1016/j.csr.2020.104313">https://doi.org/10.1016/j.csr.2020.104313</a>
-  </div>
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2021.
+      The Río de la Plata plume dynamics over the Southwestern Atlantic Continental Shelf and its link with the large scale atmospheric variability on interannual timescales.
+      <em>Continental Shelf Research</em>, 212, 104296.
+      <a href="https://doi.org/10.1016/j.csr.2020.104296">https://doi.org/10.1016/j.csr.2020.104296</a>
+    </div>
 
-  <div class="publication-item">
-    Torres Alberto, M.L., <strong>Bodnariuk, N.</strong>, Ivanovic, M., Saraceno, M. and Acha, E.M., 2021.
-    Dynamics of the confluence of Malvinas and Brazil currents, and a southern Patagonian spawning ground, explain recruitment fluctuations of the main stock of Illex argentinus.
-    <em>Fisheries Oceanography</em>, 30, pp.127–141.
-    <a href="https://doi.org/10.1111/fog.12507">https://doi.org/10.1111/fog.12507</a>
-  </div>
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2021.
+      SAM-driven variability of the southwestern Atlantic shelf sea circulation.
+      <em>Continental Shelf Research</em>, 212, 104313.
+      <a href="https://doi.org/10.1016/j.csr.2020.104313">https://doi.org/10.1016/j.csr.2020.104313</a>
+    </div>
 
-  <div class="publication-item">
-    Beron-Vera, F.J., <strong>Bodnariuk, N.</strong>, Saraceno, M., Olascoaga, M.J. and Simionato, C., 2020.
-    Stability of the Malvinas Current.
-    <em>Chaos</em>, 30(1), 013152.
-    <a href="https://doi.org/10.1063/1.5129441">https://doi.org/10.1063/1.5129441</a>
-  </div>
+    <div class="publication-item">
+      Torres Alberto, M.L., <strong>Bodnariuk, N.</strong>, Ivanovic, M., Saraceno, M. and Acha, E.M., 2021.
+      Dynamics of the confluence of Malvinas and Brazil currents, and a southern Patagonian spawning ground, explain recruitment fluctuations of the main stock of Illex argentinus.
+      <em>Fisheries Oceanography</em>, 30, pp.127–141.
+      <a href="https://doi.org/10.1111/fog.12507">https://doi.org/10.1111/fog.12507</a>
+    </div>
 
-  <h2>Contribution to Book Chapters</h2>
-  <div class="publication-item">
-    Piola, A.R., <strong>Bodnariuk, N.</strong>, Combes, V., Franco, B.C., Matano, R.P., Palma, E.D., Romero, S.I., Saraceno, M. y Urricariet, M., 2024.
-    Anatomy and dynamics of the Patagonia shelf-break front. In: Acha, E.M., Iribarne, O.O. and Piola, A.R., eds. The Patagonian Shelfbreak Front. Ecology, Fisheries, Wildlife Conservation. Aquatic Ecology Series, vol. 13. Cham: Springer, pp.11–47.
-    <a href="https://doi.org/10.1007/978-3-031-71190-9_2">https://doi.org/10.1007/978-3-031-71190-9_2</a>
-  </div>
+    <div class="publication-item">
+      Beron-Vera, F.J., <strong>Bodnariuk, N.</strong>, Saraceno, M., Olascoaga, M.J. and Simionato, C., 2020.
+      Stability of the Malvinas Current.
+      <em>Chaos</em>, 30(1), 013152.
+      <a href="https://doi.org/10.1063/1.5129441">https://doi.org/10.1063/1.5129441</a>
+    </div>
+  </section>
 
-  <h2>Forthcoming Book</h2>
-  <div class="publication-item">
-    Ghil, M., Haraux, A., Roux, J. and <strong>Bodnariuk, N.</strong>, 2025.
-    Mathematics for the Environment (near completion), Springer-Nature Series in Applied Mathematical Sciences.
-  </div>
+  <!-- Subsection 2 -->
+  <section class="subcard">
+    <h2>Contribution to Book Chapters</h2>
+    <div class="publication-item">
+      Piola, A.R., <strong>Bodnariuk, N.</strong>, Combes, V., Franco, B.C., Matano, R.P., Palma, E.D., Romero, S.I., Saraceno, M. y Urricariet, M., 2024.
+      Anatomy and dynamics of the Patagonia shelf-break front. In: Acha, E.M., Iribarne, O.O. and Piola, A.R., eds. The Patagonian Shelfbreak Front. Ecology, Fisheries, Wildlife Conservation. Aquatic Ecology Series, vol. 13. Cham: Springer, pp.11–47.
+      <a href="https://doi.org/10.1007/978-3-031-71190-9_2">https://doi.org/10.1007/978-3-031-71190-9_2</a>
+    </div>
+  </section>
+
+  <!-- Subsection 3 -->
+  <section class="subcard">
+    <h2>Forthcoming Book</h2>
+    <div class="publication-item">
+      Ghil, M., Haraux, A., Roux, J. and <strong>Bodnariuk, N.</strong>, 2025.
+      Mathematics for the Environment (near completion), Springer-Nature Series in Applied Mathematical Sciences.
+    </div>
+  </section>
 </div>
 
 </body>
 </html>
+
