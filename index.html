@@ -71,7 +71,7 @@ nav a:hover {
 .content {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* 🔹 centra verticalmente texto e imagen */
+  align-items: center; /* centra verticalmente texto e imagen */
   padding: 40px;
   background-color: rgba(15, 20, 35, 0.72);
   backdrop-filter: blur(4px);
@@ -97,28 +97,32 @@ nav a:hover {
   text-shadow: 0 0 14px rgba(255, 183, 77, 0.8);
 }
 
+/* Justificación del texto principal */
 .content .text p {
   font-size: 1.15rem;
   line-height: 1.6;
   color: rgba(240, 240, 240, 0.95);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  text-align: justify; /* ✅ Justificado */
 }
 
+/* Enlaces dentro del texto */
 .content .text a {
-  color: #00E5FF;
+  color: #FFB74D; /* naranja coherente con tus otros enlaces */
   text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s ease, text-shadow 0.3s ease;
 }
-
 .content .text a:hover {
-  color: #7FF9FF;
-  text-shadow: 0 0 10px rgba(127, 249, 255, 0.8);
+  color: #FFD180;
+  text-shadow: 0 0 8px rgba(255, 183, 77, 0.7);
+  text-decoration: underline;
 }
 
 /* ===== Sección de foto ===== */
 .content .photo {
   flex: 0 0 auto;
-  display: flex; /* 🔹 permite centrar verticalmente */
+  display: flex; /* permite centrar verticalmente */
   align-items: center;
   justify-content: center;
 }
@@ -155,12 +159,12 @@ nav a:hover {
 <body>
 
 <nav>
-  <a href="index.html">Home</a>
+  <a href="index.html" aria-current="page">Home</a>
   <a href="about.html">About Me</a>
   <a href="academia.html">Work in Academia</a>
   <a href="privatesector.html">Private sector</a>
   <a href="analytics.html">Applied analytics</a>
-  <a href="languages.html" aria-current="page">Soft Skills</a>
+  <a href="languages.html">Soft Skills</a>
   <a href="analytics.html">Courses in Data Science</a>
 </nav>
 
@@ -178,4 +182,3 @@ nav a:hover {
 
 </body>
 </html>
-
