@@ -33,22 +33,22 @@ body {
 /* ===== Navegación ===== */
 :root { --nav-h: 60px; }
 
-nav {
+  nav {
   height: var(--nav-h);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 50px;
   width: 100%;
-  padding-inline: 40px;
   background-color: rgba(10, 15, 25, 0.75);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
 }
-
+  
 .nav-links {
   display: flex;
   gap: 50px;
