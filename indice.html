@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inicio - Nicolás Bodnariuk</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* === Correcciones globales y consistencia === */
+
+html {
+  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
+  scrollbar-gutter: stable both-edges;
+}
+
+@supports not (scrollbar-gutter: stable) {
+  html { overflow-y: scroll; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+body {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  min-height: 100vh;
+}
+
+/* ===== Navegación ===== */
+:root { --nav-h: 60px; }
+
+nav {
+  height: var(--nav-h);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-inline: 40px;
+  background-color: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+nav a {
+  color: rgba(230, 230, 230, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+  padding-inline: 6px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+  color: #00E5FF;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
+
+/* ==== Selector de idioma ==== */
+.lang-switch {
+  display: flex;
+  gap: 12px;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.lang-switch a {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lang-switch a:hover {
+  transform: scale(1.25);
+}
+
+/* ===== Contenido ===== */
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+  background-color: rgba(15, 20, 35, 0.72);
+  backdrop-filter: blur(4px);
+  max-width: 1100px;
+  margin: 60px auto;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+}
+
+/* Texto */
+.content .text {
+  flex: 1;
+  margin-right: 40px;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.content .text h1 {
+  color: #FFB74D;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 14px rgba(255, 183, 77, 0.8);
+}
+
+.content .text p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgba(240, 240, 240, 0.95);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  text-align: justify;
+}
+
+/* Foto */
+.content .photo {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-photo {
+  width: 250px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 4px solid #00E5FF;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  body { background-attachment: scroll; }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+  }
+
+  .content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .content .photo {
+    margin-top: 20px;
+  }
+
+  .profile-photo {
+    width: clamp(140px, 35vw, 200px);
+  }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-links">
+    <a href="indice.html" aria-current="page">Inicio</a>
+    <a href="sobre.html">Sobre mí</a>
+    <a href="academia_es.html">Trabajo académico</a>
+    <a href="sectorprivado_es.html">Sector privado</a>
+    <a href="habilidades.html">Habilidades blandas</a>
+  </div>
+
+  <!-- Selector de idiomas -->
+  <div class="lang-switch">
+    <a href="index.html" title="English">🇬🇧</a>
+    <a href="indice.html" title="Español">🇪🇸</a>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="text">
+    <h1>Nicolás Bodnariuk</h1>
+    <p>Soy científico de datos y oceanógrafo físico con una sólida formación en matemáticas aplicadas y análisis de datos. Mi experiencia se centra en extraer significado de conjuntos de datos complejos y de alta dimensión.</p>
+    <p>He trabajado ampliamente con grandes bases de datos geofísicas a través de mi labor en <strong>CONICET</strong> (Consejo Nacional de Investigaciones Científicas y Técnicas - Argentina), <strong>CNRS</strong> (Centro Nacional de Investigación Científica - Francia), y en el sector privado.</p>
+  </div>
+
+  <div class="photo">
+    <img src="profile_photo.jpeg" alt="Nicolás Bodnariuk" class="profile-photo">
+  </div>
+</div>
+
+</body>
+</html>
