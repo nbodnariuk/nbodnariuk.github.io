@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Habilidades Blandas - Nicolás Bodnariuk</title>
+
+<style>
+/* === Consistencia con las demás secciones === */
+html {
+  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
+  scrollbar-gutter: stable both-edges;
+}
+@supports not (scrollbar-gutter: stable) { html { overflow-y: scroll; } }
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  background: transparent;
+}
+
+/* ===== Barra de navegación ===== */
+:root { --nav-h: 60px; }
+
+nav {
+  height: var(--nav-h);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  background-color: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+nav a {
+  color: rgba(230, 230, 230, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+  padding-inline: 6px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+nav a:hover { color: #00E5FF; text-shadow: 0 0 8px rgba(0, 229, 255, 0.8); }
+nav a[aria-current="page"] { color: #fff; text-shadow: 0 0 8px rgba(0,229,255,.55); }
+
+/* ===== Título general ===== */
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  color: #FFB74D;
+  text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
+  font-size: 2.2rem;
+}
+
+/* ===== Contenedor principal ===== */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1100px;
+  margin: 40px auto 80px;
+  background-color: rgba(15, 20, 35, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===== Grid ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  width: 100%;
+}
+
+/* Tarjetas */
+.skill-card {
+  background-color: rgba(25, 30, 50, 0.8);
+  border: 1px solid rgba(255, 160, 70, 0.25);
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Subtítulos */
+.section-title {
+  color: #FFB74D;
+  text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+}
+
+/* Listas */
+.skills-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.skills-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 18px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(240, 240, 240, 0.96);
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+.skills-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  color: #FFB74D;
+  opacity: 0.95;
+  font-size: 1.15rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 25px; }
+  .content { padding: 35px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="indice.html">Inicio</a>
+  <a href="sobre.html">Sobre mí</a>
+  <a href="academiaEs.html">Trabajo académico</a>
+  <a href="sectorprivado_es.html">Sector privado</a>
+
+  <a href="habilidades.html" aria-current="page">Habilidades blandas</a>
+
+  <div class="lang-switch">
+    <a href="languages.html" title="English">🇬🇧</a>
+    <a href="habilidades.html" title="Español">🇪🇸</a>
+  </div>
+</nav>
+
+<h1>Habilidades blandas</h1>
+
+<div class="content">
+  <div class="skills-grid">
+
+    <!-- Competencias -->
+    <section class="skill-card">
+      <h2 class="section-title">Competencias</h2>
+      <ul class="skills-list">
+        <li><strong>Pensamiento crítico</strong></li>
+        <li><strong>Razonamiento analítico</strong></li>
+        <li><strong>Comunicación y divulgación</strong></li>
+        <li><strong>Curiosidad y aprendizaje continuo</strong></li>
+        <li><strong>Trabajo en equipo</strong></li>
+      </ul>
+    </section>
+
+    <!-- Idiomas -->
+    <section class="skill-card">
+      <h2 class="section-title">Idiomas</h2>
+      <ul class="skills-list">
+        <li><strong>Español</strong> — Nativo</li>
+        <li><strong>Inglés</strong> — Avanzado (C2)</li>
+        <li><strong>Francés</strong> — Avanzado (C1)</li>
+        <li><strong>Alemán</strong> — Intermedio (B1)</li>
+      </ul>
+    </section>
+
+  </div>
+</div>
+
+</body>
+</html>
