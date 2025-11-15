@@ -97,4 +97,251 @@ h1 {
   box-shadow: 0 6px 25px rgba(0,0,0,.45);
 }
 
-/* ===== Fila de introducción: texto*
+/* ===== Fila de introducción: texto (2/3) + imagen (1/3) ===== */
+.intro-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 32px;
+}
+.intro {
+  flex: 2; /* 2/3 */
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: rgba(240,240,240,0.95);
+  text-shadow: 0 0 6px rgba(0,0,0,0.6);
+  text-align: justify;
+  margin: 0;
+}
+.intro-media {
+  flex: 1; /* 1/3 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-academia-right {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* ===== Tarjetas de subsección ===== */
+.subcard {
+  background-color: rgba(25, 30, 50, 0.8);
+  border: 1px solid rgba(255, 160, 70, 0.25);
+  border-radius: 12px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.subcard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 160, 70, 0.35);
+}
+.subcard h2 {
+  margin: 0 0 16px 0;
+  color: var(--cian);
+  font-size: 1.35rem;
+  text-shadow: 0 0 8px rgba(0,229,255,.35);
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  padding-bottom: 6px;
+}
+
+/* ===== Ítems con viñeta naranja ===== */
+.publication-item {
+  position: relative;
+  margin-bottom: 22px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(240,240,240,0.96);
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  text-align: justify;
+  padding-left: 20px;
+}
+.publication-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  color: var(--orange);
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+.publication-item:last-child { margin-bottom: 0; }
+
+.publication-item em { color: #e6f7ff; }
+
+.publication-item a {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--cian);
+  text-decoration: none;
+  font-size: 0.95rem;
+  word-break: break-all;
+}
+.publication-item a:hover { text-decoration: underline; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .intro-row { flex-direction: column; }
+  .intro-media { width: 100%; }
+  .logo-academia-right { max-width: 420px; }
+}
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 25px; }
+  .content { padding: 28px 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="indice.html">Inicio</a>
+  <a href="sobre.html">Sobre mí</a>
+  <a href="academiaEs.html" aria-current="page">Trabajo académico</a>
+  <a href="sectorprivado_es.html">Sector privado</a>
+
+  <!-- <a href="analytics.html">Analítica aplicada</a> -->
+  <!-- <a href="courses.html">Cursos en ciencia de datos</a> -->
+
+  <a href="habilidades.html">Habilidades blandas</a>
+
+  <div class="lang-switch">
+    <a href="academia.html" title="English">🇬🇧</a>
+    <a href="academiaEs.html" title="Español">🇪🇸</a>
+  </div>
+</nav>
+
+<h1>Trabajo académico</h1>
+
+<div class="content">
+  <!-- Fila de introducción: texto (2/3) + imagen (1/3) -->
+  <div class="intro-row">
+    <p class="intro">
+      He estudiado la <strong>variabilidad interanual de la circulación del Mar Argentino</strong>
+      en el contexto más amplio de la variabilidad climática, y he <strong>aplicado herramientas de teoría de sistemas dinámicos</strong>
+      para investigar la circulación oceánica. Estos intereses atraviesan mis publicaciones y colaboraciones actuales,
+      combinando análisis basado en datos con modelos guiados por la teoría para obtener resultados robustos y físicamente consistentes.
+    </p>
+    <div class="intro-media">
+      <img src="logo6.png" alt="Instituciones y proyectos académicos" class="logo-academia-right">
+    </div>
+  </div>
+
+  <!-- Subsección 1 -->
+  <section class="subcard">
+    <h2>Publicaciones con referato</h2>
+
+    <!-- A PARTIR DE AQUÍ: solo referencias, se dejan tal cual en inglés -->
+    <div class="publication-item">
+      Bonel, J.C., <strong>Bodnariuk, N.</strong>, Charo, G.D., Letellier, C., Saraceno, M. and Sciamarella, D., 2025.
+      Templex for Lagrangian dynamics in the Southwestern Atlantic.
+      <em>Chaos: An Interdisciplinary Journal of Nonlinear Science</em>
+      <a href="https://doi.org/10.1063/5.0255611">https://doi.org/10.1063/5.0255611</a>
+    </div>
+
+    <div class="publication-item">
+      Torres Alberto, M.L., <strong>Bodnariuk, N.</strong>, Saraceno, M. and Acha, M.A., 2025.
+      Subantarctic front variability: a potential driver of Patagonian scallop (Zygochlamys patagonica) recruitment fluctuations.
+      <em>Marine Ecology Progress Series</em>, 762, pp.51–63.
+      <a href="https://doi.org/10.3354/meps14856">https://doi.org/10.3354/meps14856</a>
+    </div>
+
+    <div class="publication-item">
+      Alonso, G., Simionato, C., Dinápoli, M., Saurral, R. and <strong>Bodnariuk, N.</strong>, 2024.
+      Positive storm surges in the Río de la Plata Estuary: forcings, long-term variability, trends and linkage with Southwestern Atlantic Continental Shelf dynamics.
+      <em>Natural Hazards</em>, 120, pp.5007–5032.
+      <a href="https://doi.org/10.1007/s11069-024-06402-w">https://doi.org/10.1007/s11069-024-06402-w</a>
+    </div>
+
+    <div class="publication-item">
+      Dinápoli, M.G., Simionato, C.G., Alonso, G., <strong>Bodnariuk, N.</strong> and Saurral, R., 2024.
+      Negative storm surges in the Río de la Plata Estuary: mechanisms, variability, trends and linkage with the Continental Shelf dynamics.
+      <em>Estuarine, Coastal and Shelf Science</em>, 305, 108844.
+      <a href="https://doi.org/10.1016/j.ecss.2024.108844">https://doi.org/10.1016/j.ecss.2024.108844</a>
+    </div>
+
+    <div class="publication-item">
+      Saraceno, M., <strong>Bodnariuk, N.</strong>, Ruiz-Etcheverry, L.A., Berta, M., Simionato, C.G., Beron-Vera, F.J. and Olascoaga, M.J., 2024.
+      Lagrangian characterization of the southwestern Atlantic from a dense surface drifter deployment.
+      <em>Deep Sea Research Part I</em>, 208, 104319.
+      <a href="https://doi.org/10.1016/j.dsr.2024.104319">https://doi.org/10.1016/j.dsr.2024.104319</a>
+    </div>
+
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Saraceno, M., Ruiz-Etcheverry, L.A., Simionato, C., Andrade-Canto, F., Beron-Vera, F.J. and Olascoaga, M.J., 2024.
+      Multiple Lagrangian jet-core structures in the Malvinas Current.
+      <em>Journal of Geophysical Research: Oceans</em>, 129, e2023JC020446.
+      <a href="https://doi.org/10.1029/2023JC020446">https://doi.org/10.1029/2023JC020446</a>
+    </div>
+
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2022.
+      Water exchanges between the Northern Argentinean Shelf and the open ocean on interannual timescales: remote influences.
+      <em>Journal of Geophysical Research: Oceans</em>, 127, e2022JC018517.
+      <a href="https://doi.org/10.1029/2022JC018517">https://doi.org/10.1029/2022JC018517</a>
+    </div>
+
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Simionato, C.G., Osman, M. and Saraceno, M., 2021.
+      Interannual variability of the latitude of separation of the Brazil Current: Teleconnections and oceanic Rossby waves propagation.
+      <em>Journal of Geophysical Research: Oceans</em>, 126, e2021JC017557.
+      <a href="https://doi.org/10.1029/2021JC017557">https://doi.org/10.1029/2021JC017557</a>
+    </div>
+
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2021.
+      The Río de la Plata plume dynamics over the Southwestern Atlantic Continental Shelf and its link with the large scale atmospheric variability on interannual timescales.
+      <em>Continental Shelf Research</em>, 212, 104296.
+      <a href="https://doi.org/10.1016/j.csr.2020.104296">https://doi.org/10.1016/j.csr.2020.104296</a>
+    </div>
+
+    <div class="publication-item">
+      <strong>Bodnariuk, N.</strong>, Simionato, C.G. and Saraceno, M., 2021.
+      SAM-driven variability of the southwestern Atlantic shelf sea circulation.
+      <em>Continental Shelf Research</em>, 212, 104313.
+      <a href="https://doi.org/10.1016/j.csr.2020.104313">https://doi.org/10.1016/j.csr.2020.104313</a>
+    </div>
+
+    <div class="publication-item">
+      Torres Alberto, M.L., <strong>Bodnariuk, N.</strong>, Ivanovic, M., Saraceno, M. and Acha, E.M., 2021.
+      Dynamics of the confluence of Malvinas and Brazil currents, and a southern Patagonian spawning ground, explain recruitment fluctuations of the main stock of Illex argentinus.
+      <em>Fisheries Oceanography</em>, 30, pp.127–141.
+      <a href="https://doi.org/10.1111/fog.12507">https://doi.org/10.1111/fog.12507</a>
+    </div>
+
+    <div class="publication-item">
+      Beron-Vera, F.J., <strong>Bodnariuk, N.</strong>, Saraceno, M., Olascoaga, M.J. and Simionato, C., 2020.
+      Stability of the Malvinas Current.
+      <em>Chaos</em>, 30(1), 013152.
+      <a href="https://doi.org/10.1063/1.5129441">https://doi.org/10.1063/1.5129441</a>
+    </div>
+  </section>
+
+  <!-- Subsección 2 -->
+  <section class="subcard">
+    <h2>Contribución a capítulos de libro</h2>
+    <div class="publication-item">
+      Piola, A.R., <strong>Bodnariuk, N.</strong>, Combes, V., Franco, B.C., Matano, R.P., Palma, E.D., Romero, S.I., Saraceno, M. y Urricariet, M., 2024.
+      Anatomy and dynamics of the Patagonia shelf-break front. In: Acha, E.M., Iribarne, O.O. and Piola, A.R., eds. The Patagonian Shelfbreak Front. Ecology, Fisheries, Wildlife Conservation. Aquatic Ecology Series, vol. 13. Cham: Springer, pp.11–47.
+      <a href="https://doi.org/10.1007/978-3-031-71190-9_2">https://doi.org/10.1007/978-3-031-71190-9_2</a>
+    </div>
+  </section>
+
+  <!-- Subsección 3 -->
+  <section class="subcard">
+    <h2>Libro en preparación</h2>
+    <div class="publication-item">
+      Ghil, M., Haraux, A., Roux, J. and <strong>Bodnariuk, N.</strong>, 2025.
+      Mathematics for the Environment (near completion), Springer-Nature Series in Applied Mathematical Sciences.
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
