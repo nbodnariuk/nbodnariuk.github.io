@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Sobre mí - Nicolás Bodnariuk</title>
+
+<style>
+/* === Consistencia total con index.html === */
+html {
+  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
+  scrollbar-gutter: stable both-edges;
+}
+@supports not (scrollbar-gutter: stable) {
+  html { overflow-y: scroll; }
+}
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  background: transparent;
+}
+
+/* ===== Navegación ===== */
+:root { --nav-h: 60px; }
+
+nav {
+  height: var(--nav-h);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-inline: 40px;
+  background-color: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+nav a {
+  color: rgba(230, 230, 230, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+  padding-inline: 6px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+  color: #00E5FF;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
+
+/* Selector de idioma */
+.lang-switch {
+  display: flex;
+  gap: 12px;
+  font-size: 1.5rem;
+  align-items: center;
+}
+
+.lang-switch a:hover {
+  transform: scale(1.25);
+}
+
+/* ===== Contenido ===== */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 60px auto;
+  gap: 50px;
+  background-color: rgba(15, 20, 35, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Texto */
+.text-with-video {
+  flex: 2;
+  min-width: 0;
+}
+.text-with-video h1 {
+  color: #FFB74D;
+  font-size: 2.1rem;
+  margin-bottom: 25px;
+  text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
+}
+.text-with-video p {
+  font-size: 1.18rem;
+  line-height: 1.65;
+  color: rgba(240, 240, 240, 0.95);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  text-align: justify;
+}
+
+/* Enlaces */
+.text-with-video a {
+  color: #FFB74D;
+  text-decoration: none;
+  font-weight: 600;
+}
+.text-with-video a:hover {
+  color: #FFD180;
+  text-shadow: 0 0 8px rgba(255, 183, 77, 0.7);
+  text-decoration: underline;
+}
+
+/* Columna del logo + CV */
+.media-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-box {
+  width: 80%;
+  border: 2px solid #00E5FF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  width: 100%;
+}
+
+/* CV Link */
+.cv-link {
+  font-size: 1.5rem;
+  color: #FFB74D;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 1.8cm;
+}
+.cv-link:hover {
+  color: #FFD180;
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 25px; }
+  .content { flex-direction: column; text-align: center; gap: 35px; padding: 35px; }
+  .media-box { width: 75%; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="nav-links">
+    <a href="indice.html">Inicio</a>
+    <a href="sobre.html" aria-current="page">Sobre mí</a>
+    <a href="academia_es.html">Trabajo académico</a>
+    <a href="sectorprivado_es.html">Sector privado</a>
+    <a href="habilidades.html">Habilidades interpersonales</a>
+  </div>
+
+  <div class="lang-switch">
+    <a href="about.html" title="English">🇬🇧</a>
+    <a href="sobre.html" title="Español">🇪🇸</a>
+  </div>
+</nav>
+  
+<div class="content">
+  <div class="text-with-video">
+    <h1>Sobre mí</h1>
+
+    <p>
+      Obtuve mi título de grado en Oceanografía Física en la 
+      <a href="https://www.uns.edu.ar" target="_blank">Universidad Nacional del Sur</a> (Argentina, 2015) 
+      y luego completé mi doctorado en Ciencias del Océano y la Atmósfera en la 
+      <a href="https://www.uba.ar" target="_blank">Universidad de Buenos Aires</a> (2023), financiado por una beca de 
+      <a href="https://www.conicet.gov.ar" target="_blank">CONICET</a>.
+    </p>
+
+    <p>
+      Luego realicé investigación posdoctoral tanto en el 
+      <a href="https://www.cima.fcen.uba.ar" target="_blank">CIMA</a> (Centro de Investigación del Mar y la Atmósfera, Buenos Aires) 
+      como en el 
+      <a href="https://www.lmd.ipsl.fr" target="_blank">LMD</a> 
+      (Laboratoire de Météorologie Dynamique, 
+      <a href="https://www.cnrs.fr/en" target="_blank">CNRS</a>, París, Francia). 
+      Mi trabajo académico se centra en el análisis de grandes bases de datos geofísicos (del orden de terabytes), 
+      integrando teoría de sistemas dinámicos, topología y estadística.
+    </p>
+
+    <p>
+      Además de mi experiencia científica, he trabajado en el sector privado con bases de datos meteorológicas 
+      y simulaciones Monte Carlo.
+    </p>
+  </div>
+
+  <div class="media-column">
+    <div class="media-box">
+      <img src="logo.png" alt="Logo" class="logo">
+    </div>
+    <a href="CV.pdf" class="cv-link">Currículum vitae</a>
+  </div>
+</div>
+
+</body>
+</html>
