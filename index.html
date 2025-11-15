@@ -5,34 +5,30 @@
 <title>Home - Nicolás Bodnariuk</title>
 
 <style>
-/* === Correcciones globales y consistencia === */
-
-/* Fondo aplicado al <html> para evitar barras blancas */
+/* === Consistencia total con about.html === */
 html {
   background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
   scrollbar-gutter: stable both-edges;
 }
-
-/* Fallback si no hay scrollbar-gutter */
 @supports not (scrollbar-gutter: stable) {
   html { overflow-y: scroll; }
 }
-
-/* Normalización y prevención de overflow lateral */
 *, *::before, *::after { box-sizing: border-box; }
 img, video { max-width: 100%; height: auto; display: block; }
 
+html, body { height: 100%; }
+
 body {
-  background: transparent;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   color: #f2f2f2;
-  min-height: 100vh;
+  background: transparent;
 }
 
-/* ===== Barra de navegación ===== */
+/* ===== Barra de navegación (idéntica en estilo a about.html) ===== */
 :root { --nav-h: 60px; }
 
 nav {
@@ -51,7 +47,6 @@ nav {
   box-shadow: 0 4px 12px rgba(0, 0, 0, .4);
 }
 
-
 nav a {
   color: rgba(230, 230, 230, 0.9);
   text-decoration: none;
@@ -67,15 +62,11 @@ nav a:hover {
   text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
 }
 
-
-
-
-
 /* ===== Contenido ===== */
 .content {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* centra verticalmente texto e imagen */
+  align-items: center;
   padding: 40px;
   background-color: rgba(15, 20, 35, 0.72);
   backdrop-filter: blur(4px);
@@ -101,18 +92,17 @@ nav a:hover {
   text-shadow: 0 0 14px rgba(255, 183, 77, 0.8);
 }
 
-/* Justificación del texto principal */
 .content .text p {
   font-size: 1.15rem;
   line-height: 1.6;
   color: rgba(240, 240, 240, 0.95);
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
-  text-align: justify; /* ✅ Justificado */
+  text-align: justify;
 }
 
 /* Enlaces dentro del texto */
 .content .text a {
-  color: #FFB74D; /* naranja coherente con tus otros enlaces */
+  color: #FFB74D;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -126,7 +116,7 @@ nav a:hover {
 /* ===== Sección de foto ===== */
 .content .photo {
   flex: 0 0 auto;
-  display: flex; /* permite centrar verticalmente */
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -181,14 +171,12 @@ nav a:hover {
 
   <a href="languages.html">Soft Skills</a>
 
-
-  <!-- Language Selector -->
   <div class="lang-switch">
     <a href="index.html" title="English">🇬🇧</a>
     <a href="indice.html" title="Español">🇪🇸</a>
   </div>
 </nav>
-  
+
 <div class="content">
   <div class="text">
     <h1>Nicolás Bodnariuk</h1>
@@ -203,4 +191,3 @@ nav a:hover {
 
 </body>
 </html>
-
