@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Sector Privado - Nicolás Bodnariuk</title>
+
+<style>
+/* === Consistencia con index/about === */
+
+html {
+  background: #0b1120 url('fondo_2.png') center top / cover no-repeat fixed;
+  scrollbar-gutter: stable both-edges;
+}
+@supports not (scrollbar-gutter: stable) {
+  html { overflow-y: scroll; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+html, body { height: 100%; }
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: #f2f2f2;
+  background: transparent;
+}
+
+:root { --nav-h: 60px; }
+
+nav {
+  height: var(--nav-h);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  background-color: rgba(10, 15, 25, 0.75);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+nav a {
+  color: rgba(230, 230, 230, 0.9);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.4px;
+  padding-inline: 6px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+  color: #00E5FF;
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.8);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 40px;
+  color: #FFB74D;
+  text-shadow: 0 0 12px rgba(255, 183, 77, 0.8);
+  font-size: 2.1rem;
+}
+
+.content {
+  max-width: 1100px;
+  margin: 30px auto 60px;
+  background-color: rgba(15, 20, 35, 0.72);
+  backdrop-filter: blur(4px);
+  border-radius: 15px;
+  padding: 40px 50px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.intro {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  color: rgba(240, 240, 240, 0.95);
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+  margin-bottom: 28px;
+  text-align: justify;
+}
+
+.intro a {
+  color: #FFB74D;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.intro a:hover {
+  color: #FFD180;
+  text-shadow: 0 0 8px rgba(255, 183, 77, 0.7);
+}
+
+.project-card {
+  background-color: rgba(25, 30, 50, 0.8);
+  border: 1px solid rgba(255, 160, 70, 0.25);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+  border-color: rgba(255, 160, 70, 0.35);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.card-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-figure img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: rgba(10, 15, 25, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+}
+
+.card-body h3 {
+  color: rgba(79, 195, 247, 0.95);
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+}
+
+.card-body p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(240, 240, 240, 0.96);
+  margin: 0 0 12px 0;
+  text-align: justify;
+}
+
+footer {
+  text-align: center;
+  margin: 40px 0 20px;
+  color: rgba(230, 230, 230, 0.6);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  nav { flex-wrap: wrap; gap: 25px; }
+  .content { padding: 28px 22px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .card-figure { margin-top: 12px; }
+  .card-figure img { width: 130px; height: 130px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="indice.html">Inicio</a>
+  <a href="sobre.html">Sobre mí</a>
+  <a href="academiaEs.html">Trabajo académico</a>
+  <a href="sectorprivado_es.html" aria-current="page">Sector privado</a>
+
+  <!-- <a href="#">Analítica aplicada</a> -->
+  <!-- <a href="#">Cursos de ciencia de datos</a> -->
+
+  <a href="habilidades.html">Habilidades blandas</a>
+
+  <div class="lang-switch">
+    <a href="privatesector.html" title="English">🇬🇧</a>
+    <a href="sectorprivado_es.html" title="Español">🇪🇸</a>
+  </div>
+</nav>
+
+<h1>Sector Privado</h1>
+
+<div class="content">
+  <p class="intro">
+    Trabajo de consultoría desarrollado en colaboración con 
+    <a href="https://www.bahitek.com.ar" target="_blank" rel="noopener">Bahitek SRL</a>,
+    aplicando modelos matemáticos, cuantificación de incertidumbre y análisis ambientales orientados a datos reales y procesos industriales.
+  </p>
+
+  <!-- Card 1 -->
+  <section class="project-card">
+    <div class="card-grid">
+      <div class="card-body">
+        <h3>Propagación de incertidumbre con métodos Monte Carlo</h3>
+        <p>
+          Aplicación de técnicas Monte Carlo para propagar la incertidumbre asociada al conocimiento de variables operativas en la red de bombeo de una planta química (TGS). El objetivo fue cuantificar la incertidumbre conjunta en las variables de salida (presión de descarga).
+        </p>
+        <p>
+          Para la implementación se trabajó en la interfaz MATLAB–HYSYS automatizando la generación de escenarios de flujo y realizando un análisis de sensibilidad.
+        </p>
+      </div>
+      <figure class="card-figure">
+        <img src="logo5.png" alt="Proyecto incertidumbre Monte Carlo" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Card 2 -->
+  <section class="project-card">
+    <div class="card-grid">
+      <div class="card-body">
+        <h3>Procesamiento meteorológico para análisis de dispersión</h3>
+        <p>
+          Limpieza y control de calidad de series meteorológicas, incluyendo manejo de datos faltantes y estrategias de completitud para apoyar análisis de dispersión de contaminantes en sistemas de combustión. El trabajo se basó en datos del SMN y fue desarrollado en MATLAB, Python y Julia para Profertil, Mega, Viterra, TGS y Renova.
+        </p>
+      </div>
+      <figure class="card-figure">
+        <img src="logo4.png" alt="Proyecto análisis meteorológico" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Card 3 -->
+  <section class="project-card">
+    <div class="card-grid">
+      <div class="card-body">
+        <h3>Análisis estadístico de indicadores operativos</h3>
+        <p>
+          Análisis estadísticos incluyendo percentiles operativos (temperatura), frecuencia de eventos y estudios de correlación entre variables. Identificación de relaciones entre aumentos de temperatura y altos niveles de humedad (restricciones de disipación de calor latente) asociados a direcciones de viento preferenciales en la planta Aluar (Puerto Madryn).
+        </p>
+      </div>
+      <figure class="card-figure">
+        <img src="logo3.png" alt="Proyecto análisis estadístico" />
+      </figure>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
